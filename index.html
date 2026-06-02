@@ -1,0 +1,2444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="CapitalTrend Group · Monthly Report · May 2026 · Built to Scale, Disciplined to Last.">
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<title>CapitalTrend · Monthly Report · May 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,900&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='24' font-family='serif' font-size='24' text-anchor='middle' fill='%231B1B1B'%3EC%3C/text%3E%3C/svg%3E">
+
+<style>
+/* ═════════════════════════════════════════════════════
+   RESET & TOKENS
+   ═════════════════════════════════════════════════════ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Palette */
+  --ink:        #1B1B1B;
+  --ink-soft:   #6E6A63;
+  --paper:      #FAF7F2;
+  --paper-pure: #FFFFFF;
+  --gold:       #B7935A;
+  --gold-soft:  rgba(183, 147, 90, 0.12);
+  --rule:       rgba(27, 27, 27, 0.08);
+  --accent-em:  #C8302D;   /* editorial em — italic red, Penguin/FSG/glossary lineage */
+  --spine-width:    32px;       /* left-rail width including padding */
+  --header-height:  56px;       /* fixed header strip */
+  --page-transition: 600ms;     /* book-page slide duration */
+
+  /* Typography families */
+  --font-display: 'Fraunces', 'Tiempos Headline', 'Reckless', Georgia, serif;
+  --font-body:    'Source Serif 4', 'Tiempos Text', 'Source Serif Pro', Georgia, serif;
+  --font-mono:    'JetBrains Mono', 'Söhne Mono', ui-monospace, monospace;
+
+  /* Type scale */
+  --type-issue:        11px;
+  --type-section-num:  12px;
+  --type-eyebrow:      13px;
+  --type-meta:         14px;
+  --type-body:         17px;
+  --type-lede:         21px;
+  --type-h2:           32px;
+  --type-h1:           56px;
+  --type-display-md:   84px;
+  --type-display-xl:   clamp(72px, 12vw, 144px);
+
+  /* Layout */
+  --container-max:     1180px;
+  --reading-max:       660px;
+  --container-pad-x:   clamp(24px, 6vw, 64px);
+  --section-pad-y:     160px;
+  --section-pad-y-mobile: 96px;
+
+  /* Motion */
+  --ease-out-quint:    cubic-bezier(0.22, 1, 0.36, 1);
+  --reveal-duration:   350ms;
+  --reveal-translate:  8px;
+  --hairline-duration: 600ms;
+  --stagger-step:      60ms;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: var(--type-body);
+  line-height: 1.62;
+  font-feature-settings: 'kern', 'liga', 'calt';
+}
+
+/* ═════════════════════════════════════════════════════
+   LAYOUT PRIMITIVES
+   ═════════════════════════════════════════════════════ */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad-x);
+}
+
+.reading-column {
+  max-width: var(--reading-max);
+}
+
+/* ═════════════════════════════════════════════════════
+   TYPOGRAPHY UTILITIES
+   ═════════════════════════════════════════════════════ */
+.t-issue {
+  font-family: var(--font-mono);
+  font-size: var(--type-issue);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--ink);
+}
+/* Editorial exception: --gold on small text is sub-WCAG-AA contrast (~2.7:1).
+   Documented design choice — section numerals are low-information sub-protagonism,
+   not essential reading content. Audience is private investor (single reader). */
+.t-section-num {
+  font-family: var(--font-mono);
+  font-size: var(--type-section-num);
+  color: var(--gold);
+  line-height: 1.4;
+}
+.t-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--type-eyebrow);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.t-meta {
+  font-family: var(--font-mono);
+  font-size: var(--type-meta);
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.t-body {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  line-height: 1.62;
+  color: var(--ink);
+}
+.t-lede {
+  font-family: var(--font-body);
+  font-size: var(--type-lede);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-weight: 400;
+}
+.t-h2 {
+  font-family: var(--font-display);
+  font-size: var(--type-h2);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.t-h1 {
+  font-family: var(--font-display);
+  font-size: var(--type-h1);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.t-display-md {
+  font-family: var(--font-display);
+  font-size: var(--type-display-md);
+  font-weight: 300;
+  line-height: 1.0;
+  font-variant-numeric: tabular-nums;
+}
+.t-display-xl {
+  font-family: var(--font-display);
+  font-size: var(--type-display-xl);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* ═════════════════════════════════════════════════════
+   MOTION (reveal system)
+   ═════════════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-translate));
+  transition:
+    opacity var(--reveal-duration) var(--ease-out-quint),
+    transform var(--reveal-duration) var(--ease-out-quint);
+  transition-delay: calc(var(--stagger-i, 0) * var(--stagger-step));
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ═════════════════════════════════════════════════════
+   BOOK-STYLE PAGINATED LAYOUT
+   ═════════════════════════════════════════════════════ */
+html, body {
+  height: 100%;
+  overflow: hidden; /* no body scroll — navigation is paginated */
+}
+body {
+  position: relative;
+}
+
+.report-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  padding-left: var(--spine-width);
+}
+
+.pages-track {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transform: translateX(0);
+  transition: transform var(--page-transition) var(--ease-out-quint);
+  will-change: transform;
+}
+
+/* During page transition, dim non-active pages so the entering page reads as the focal one */
+.page {
+  transition: opacity 350ms var(--ease-out-quint);
+}
+.page:not(.is-current) {
+  opacity: 0.35;
+}
+.page.is-current {
+  opacity: 1;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  padding-top: calc(var(--header-height) + 80px);
+  padding-bottom: 96px; /* space for page-nav buttons */
+}
+.page::-webkit-scrollbar { display: none; }
+
+/* ═════════════════════════════════════════════════════
+   SPINE (left rail with one line per page)
+   ═════════════════════════════════════════════════════ */
+.spine {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--spine-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: var(--header-height) 0 96px;            /* clear header at top + nav at bottom */
+  z-index: 50;
+  height: 100%;
+}
+.spine-line {
+  width: 1px;
+  background: var(--ink-soft);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.18;                                  /* faint placeholder — book "page edges" not yet turned */
+  transform-origin: center;
+  flex: 1 1 0;                                    /* lines stretch to fill spine height — "top to bottom" feel */
+  min-height: 24px;
+  max-height: 80px;
+  transition:
+    background 300ms var(--ease-out-quint),
+    opacity 300ms var(--ease-out-quint),
+    width 300ms var(--ease-out-quint);
+  display: block;
+}
+.spine-line:hover {
+  opacity: 0.5;
+}
+.spine-line.is-placeholder {
+  cursor: default;
+  opacity: 0.08;
+}
+.spine-line.is-placeholder:hover {
+  opacity: 0.08;
+}
+.spine-line.is-visited {
+  background: var(--gold);
+  opacity: 0.85;
+  width: 2px;
+}
+.spine-line.is-active {
+  background: var(--ink);
+  opacity: 1;
+  width: 3px;
+}
+.spine-line.is-visited:hover,
+.spine-line.is-active:hover {
+  opacity: 1;
+}
+.spine-line:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* ═════════════════════════════════════════════════════
+   PAGE NAVIGATION (prev/next buttons bottom-right)
+   ═════════════════════════════════════════════════════ */
+.page-nav {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  gap: 8px;
+  z-index: 50;
+  font-family: var(--font-mono);
+}
+.page-nav-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(250, 247, 242, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: background 150ms var(--ease-out-quint), color 150ms var(--ease-out-quint), border-color 150ms var(--ease-out-quint);
+}
+.page-nav-btn:hover:not(:disabled) {
+  background: var(--paper-pure);
+  border-color: var(--gold);
+}
+.page-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.page-nav-btn:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+}
+.page-counter {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--ink-soft);
+  padding: 0 12px;
+  user-select: none;
+}
+
+/* ═════════════════════════════════════════════════════
+   COVER overrides for paginated context
+   ═════════════════════════════════════════════════════ */
+.cover {
+  min-height: 100%;
+  height: 100%;
+  /* cover defines its own grid + padding internally; reset .page's added padding to avoid doubling */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  :root { --spine-width: 24px; }
+  .page-nav { bottom: 16px; right: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pages-track { transition: none; }
+}
+
+/* ═════════════════════════════════════════════════════
+   HEADER + LANGUAGE TOGGLE
+   ═════════════════════════════════════════════════════ */
+.report-header {
+  position: fixed;
+  top: 0;
+  left: var(--spine-width);
+  right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--container-pad-x);
+  z-index: 100;
+  background: rgba(250, 247, 242, 0);
+  border-bottom: 1px solid transparent;
+  transition: background 200ms var(--ease-out-quint), border-color 200ms var(--ease-out-quint);
+}
+.report-header.is-active {
+  background: rgba(250, 247, 242, 0.85);
+  border-bottom-color: var(--rule);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: none;
+  border: none;
+  padding: 6px 0;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+.lang-toggle .lang-opt {
+  color: var(--ink-soft);
+  transition: color 150ms var(--ease-out-quint);
+}
+.lang-toggle .lang-opt.active {
+  color: var(--ink);
+}
+.lang-toggle .lang-sep {
+  color: var(--gold);
+}
+.lang-toggle:hover .lang-opt:not(.active) {
+  color: var(--ink);
+}
+.lang-toggle:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.report-main {
+  transition: opacity 100ms var(--ease-out-quint);
+}
+.report-main.is-swapping {
+  opacity: 0;
+}
+
+/* ═════════════════════════════════════════════════════
+   §01 COVER
+   ═════════════════════════════════════════════════════ */
+.cover {
+  min-height: 100vh;           /* fallback for older browsers */
+  min-height: 100svh;          /* stable on iOS Safari URL-bar collapse */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 96px 0 64px;
+}
+.cover-meta {
+  padding: 0 var(--container-pad-x);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cover-meta .cover-issue {
+  color: var(--ink-soft);
+}
+.cover-hairline {
+  width: 56px;
+  height: 1px;
+  background: var(--gold);
+  margin-top: 20px;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform var(--hairline-duration) var(--ease-out-quint) 400ms;
+}
+.cover-hairline.is-in {
+  transform: scaleX(1);
+}
+
+.cover-center {
+  padding: 0 var(--container-pad-x);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+}
+/* Editorial em-mark utility — adds a red italic terminal period (Penguin/FSG/glossary lineage).
+   Apply to elements whose text intent ends with an editorial signature. */
+.em-mark::after {
+  content: ".";
+  color: var(--accent-em);
+  font-style: italic;
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-left: 0.06em;
+  font-size: 1em;
+  display: inline-block;
+}
+/* On small/mono labels (section numbers) the period needs to be larger to read */
+.t-section-num.em-mark::after {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-left: 0.1em;
+  vertical-align: -0.15em;
+}
+.cover-lede {
+  max-width: 560px;
+}
+
+.cover-footer {
+  padding: 0 var(--container-pad-x);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+.scroll-glyph {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--ink-soft);
+  opacity: 0;
+  transition: opacity 400ms var(--ease-out-quint);
+}
+.scroll-glyph.is-visible {
+  opacity: 0.4;
+  animation: scroll-pulse 2.4s var(--ease-out-quint) infinite;
+}
+@keyframes scroll-pulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* In paginated mode, scroll-glyph becomes a horizontal advance hint */
+.scroll-glyph::before {
+  content: "→";
+}
+.scroll-glyph {
+  font-size: 18px;
+}
+@keyframes scroll-pulse {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+@media (max-width: 768px) {
+  .cover-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-hairline { transform: scaleX(1); }
+  .scroll-glyph.is-visible { animation: none; }
+}
+
+/* ═════════════════════════════════════════════════════
+   §02 WHERE WE STAND
+   ═════════════════════════════════════════════════════ */
+.snapshot .container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: 80px;
+  align-items: start;
+  width: 100%;
+}
+.snapshot-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: var(--reading-max);
+}
+.snapshot-num {
+  margin-bottom: -8px;
+}
+.snapshot-title {
+  margin-bottom: 16px;
+}
+.snapshot-body {
+  max-width: 560px;
+}
+
+.specimen-plate {
+  background: var(--paper-pure);
+  border: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.kpi {
+  padding: 28px;
+  border-right: 0.5px solid var(--rule);
+  border-bottom: 0.5px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 160px;
+}
+.kpi:nth-child(2n) { border-right: none; }
+.kpi:nth-child(7), .kpi:nth-child(8) { border-bottom: none; }
+.kpi-num {
+  font-family: var(--font-display);
+  font-size: var(--type-display-md);
+  font-weight: 300;
+  line-height: 1.0;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+.kpi-label {
+  margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  .snapshot .container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+@media (max-width: 480px) {
+  .specimen-plate { grid-template-columns: 1fr; }
+  .kpi {
+    border-right: none;
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .kpi:nth-child(7), .kpi:nth-child(8) { border-bottom: 0.5px solid var(--rule); }
+  .kpi:last-child { border-bottom: none; }
+}
+
+
+/* ═════════════════════════════════════════════════════
+   §10 SEQUENCING
+   ═════════════════════════════════════════════════════ */
+.sequencing .container {
+  /* §10 wants more horizontal room to fit all 4 sub-blocks without vertical scroll */
+  max-width: 1320px;
+}
+.seq-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+  max-width: 720px;
+}
+.seq-header .seq-title {
+  font-size: 44px;
+}
+.seq-header .seq-lede {
+  font-size: 18px;
+  max-width: 620px;
+}
+.seq-header .seq-hairline {
+  margin: 8px 0 8px;
+}
+.seq-blocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 48px;
+  border-top: 0.5px solid var(--rule);
+}
+.seq-num {
+  /* uses .t-section-num + em-mark */
+}
+.seq-eyebrow {
+  /* uses .t-eyebrow */
+}
+.seq-title {
+  line-height: 1.05;
+}
+.seq-hairline {
+  width: 56px;
+  height: 1px;
+  background: var(--gold);
+  margin: 16px 0 16px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform var(--hairline-duration) var(--ease-out-quint) 200ms;
+}
+.seq-hairline.is-in { transform: scaleX(1); }
+
+.seq-lede {
+  max-width: 580px;
+}
+
+.seq-block {
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 0.5px solid var(--rule);
+}
+.seq-block .seq-block-body {
+  font-size: 15px;
+  line-height: 1.5;
+}
+.seq-block .seq-trigger {
+  font-size: 14px;
+  line-height: 1.45;
+  padding-left: 12px;
+}
+/* Last row of grid: remove bottom border on bottom row items */
+.seq-block:nth-last-child(-n+2) {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+/* Vertical divider between left and right columns (drawn by grid) */
+.seq-block:nth-child(odd) {
+  padding-right: 28px;
+  border-right: 0.5px solid var(--rule);
+  margin-right: -28px;
+}
+.seq-block:nth-child(even) {
+  padding-left: 28px;
+}
+
+@media (max-width: 900px) {
+  .seq-blocks { grid-template-columns: 1fr; gap: 0; }
+  .seq-block:nth-child(odd) {
+    padding-right: 0;
+    border-right: none;
+    margin-right: 0;
+  }
+  .seq-block:nth-child(even) { padding-left: 0; }
+  .seq-block { border-bottom: 0.5px solid var(--rule) !important; padding-bottom: 32px !important; padding-top: 32px; }
+  .seq-block:last-child { border-bottom: none !important; padding-bottom: 0 !important; }
+}
+.seq-block-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.seq-block-num {
+  color: var(--gold);
+  font-family: var(--font-mono);
+}
+.seq-block-glyph {
+  font-family: var(--font-body);
+  color: var(--ink);
+  font-size: 14px;
+  margin: 0 4px 0 0;
+  font-style: normal;
+}
+.seq-block-title {
+  font-family: var(--font-body);
+  font-size: var(--type-eyebrow);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.seq-block-title-sub {
+  color: var(--ink-soft);
+  text-transform: none;
+  letter-spacing: 0;
+  font-style: italic;
+  font-weight: 400;
+  font-family: var(--font-body);
+  font-size: var(--type-meta);
+}
+.seq-block-body {
+  /* uses .t-body */
+}
+.seq-trigger {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.55;
+  border-left: 1.5px solid var(--gold);
+  padding-left: 16px;
+  margin-top: 4px;
+}
+.seq-trigger strong {
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Sub-block number gets the em-mark too */
+.seq-block-num.em-mark::after {
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-left: 0.1em;
+  vertical-align: -0.15em;
+}
+
+/* Print: avoid breaking sub-blocks across pages */
+@media print {
+  .seq-block { page-break-inside: avoid; }
+}
+
+@media (max-width: 768px) {
+  .seq-block { padding: 48px 0; }
+  .seq-header { margin-bottom: 56px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .seq-hairline { transform: scaleX(1); }
+}
+
+/* ═════════════════════════════════════════════════════
+   §01 SNAPSHOT · §02 THESIS · §03 ACCOUNTABILITY · §13 CALENDAR · §14 CLOSING
+   shared text-page styles
+   ═════════════════════════════════════════════════════ */
+.text-page .container {
+  max-width: 880px;
+}
+.text-page .seq-hairline,
+.text-page .text-hairline {
+  width: 56px;
+  height: 1px;
+  background: var(--gold);
+  margin: 12px 0 12px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform var(--hairline-duration) var(--ease-out-quint) 200ms;
+}
+.text-page .text-hairline.is-in { transform: scaleX(1); }
+.text-page .text-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.text-page .text-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 700px;
+}
+.text-page .text-body p {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.text-page .text-body p.t-lede {
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+/* ═════════════════════════════════════════════════════
+   §03 ACCOUNTABILITY — table with done / progress / deferred glyphs
+   ═════════════════════════════════════════════════════ */
+.errata-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  font-family: var(--font-body);
+  font-size: 15px;
+}
+.errata-table thead th {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-align: left;
+  padding: 12px 16px 12px 0;
+  border-bottom: 0.5px solid var(--rule);
+}
+.errata-table thead th:last-child { padding-right: 0; }
+.errata-table tbody td {
+  padding: 14px 16px 14px 0;
+  border-bottom: 0.5px solid var(--rule);
+  vertical-align: top;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.errata-table tbody td:last-child { padding-right: 0; color: var(--ink-soft); font-size: 14px; }
+.errata-table tbody tr:last-child td { border-bottom: none; }
+.errata-glyph {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1;
+  margin-right: 8px;
+  width: 18px;
+  text-align: center;
+}
+.errata-glyph.is-done { color: var(--gold); }
+.errata-glyph.is-progress { color: var(--ink-soft); }
+.errata-glyph.is-deferred { color: var(--ink-soft); }
+.errata-footnote {
+  margin-top: 28px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 660px;
+}
+
+/* ═════════════════════════════════════════════════════
+   §14 CLOSING — single statement page
+   ═════════════════════════════════════════════════════ */
+.closing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.closing .container {
+  max-width: 760px;
+}
+.closing-quote {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 48px;
+}
+.closing-quote em {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.closing-colophon {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  border-top: 0.5px solid var(--rule);
+  padding-top: 20px;
+  max-width: 540px;
+}
+.closing-colophon-em {
+  font-family: var(--font-body);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .text-page .text-header { margin-bottom: 28px; }
+  .text-page .text-body p { font-size: 15px; }
+  .closing-quote { font-size: clamp(24px, 6vw, 32px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-page .text-hairline { transform: scaleX(1); }
+}
+
+/* ═════════════════════════════════════════════════════
+   §06 FUNNEL · §11 INTERNAL ENGINE · §12 JUNE CATALYSTS
+   data-visualization sections
+   ═════════════════════════════════════════════════════ */
+
+/* §06 funnel — 4-stage horizontal stair with ROAS callout */
+.funnel-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 24px 0 32px;
+  max-width: 760px;
+}
+.funnel-row {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  background: var(--paper-pure);
+  border: 1px solid var(--rule);
+}
+.funnel-row.is-hot {
+  background: var(--gold-soft);
+  border-color: var(--gold);
+}
+.funnel-step {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.1em;
+}
+.funnel-label {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.funnel-mech {
+  display: block;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 13px;
+  margin-top: 2px;
+}
+.funnel-status {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-align: right;
+  white-space: nowrap;
+}
+.funnel-row.is-hot .funnel-status {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.funnel-callout {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+  margin: 8px 0 4px;
+}
+.funnel-callout-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+.funnel-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 24px;
+}
+
+/* §11 internal engine — table + horizontal bar chart */
+.brands-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  max-width: 720px;
+}
+.brands-table thead th {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-align: left;
+  padding: 10px 16px 10px 0;
+  border-bottom: 0.5px solid var(--rule);
+}
+.brands-table thead th:last-child { text-align: right; padding-right: 0; }
+.brands-table tbody td {
+  padding: 12px 16px 12px 0;
+  border-bottom: 0.5px solid var(--rule);
+  vertical-align: middle;
+  color: var(--ink);
+}
+.brands-table tbody td:nth-child(2) { color: var(--ink-soft); font-style: italic; font-size: 13px; }
+.brands-table tbody td:last-child {
+  text-align: right;
+  padding-right: 0;
+  font-family: var(--font-mono);
+  color: var(--gold);
+  font-weight: 500;
+}
+.brands-table tbody tr:last-child td { border-bottom: none; }
+
+.brands-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 32px;
+  max-width: 720px;
+}
+.brands-bar-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 48px;
+  gap: 16px;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+.brands-bar-name { color: var(--ink); }
+.brands-bar-track {
+  height: 6px;
+  background: var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+.brands-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background: var(--gold);
+  width: 0;
+  transition: width 700ms var(--ease-out-quint);
+}
+.brands-bar-row.is-in .brands-bar-fill {
+  /* JS sets --w via inline style, drives width */
+  width: var(--w, 0%);
+}
+.brands-bar-pct {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--gold);
+  text-align: right;
+}
+
+/* §12 may catalysts — vertical timeline with gold spine */
+.timeline {
+  position: relative;
+  margin: 24px 0;
+  padding-left: 32px;
+  max-width: 720px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--gold);
+  opacity: 0.45;
+}
+.timeline-item {
+  position: relative;
+  padding: 12px 0 18px;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -32px;
+  top: 18px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1.5px solid var(--gold);
+}
+.timeline-item.is-anchor::before {
+  background: var(--gold);
+}
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.timeline-title {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.timeline-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .funnel-summary { grid-template-columns: 1fr; gap: 16px; }
+  .funnel-callout { font-size: 48px; }
+  .brands-bar-row { grid-template-columns: 110px 1fr 40px; gap: 12px; }
+}
+
+/* ═════════════════════════════════════════════════════
+   §04 §05 §07 §08 §09 — typographic plates (no images)
+   ═════════════════════════════════════════════════════ */
+
+/* Two-column layout shared by §04 §05 §09 */
+.plate-page .container {
+  max-width: 1180px;
+}
+.plate-page .plate-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: 64px;
+  align-items: start;
+}
+.plate-page .plate-text {
+  max-width: 580px;
+}
+.plate-page .plate-text > * + * { margin-top: 16px; }
+.plate-page .plate-text p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.plate-page .plate-text p.t-lede {
+  font-size: 18px;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+/* Generic typographic plate frame */
+.plate {
+  background: var(--paper-pure);
+  border: 1px solid var(--rule);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.plate-eyebrow {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.plate-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.plate-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--ink);
+}
+.plate-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: 4px 0;
+}
+.plate-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+.plate-stat {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 16px;
+  align-items: baseline;
+  font-family: var(--font-body);
+  font-size: 13px;
+  border-bottom: 0.5px solid var(--rule);
+  padding-bottom: 10px;
+}
+.plate-stat:last-child { border-bottom: none; padding-bottom: 0; }
+.plate-stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.plate-stat-value { color: var(--ink); }
+
+/* §04 — Anthropic certification seal */
+.cert-seal {
+  background: var(--paper-pure);
+  border: 1.5px solid var(--gold);
+  padding: 56px 32px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+}
+.cert-seal::before,
+.cert-seal::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--gold);
+}
+.cert-seal::before { top: 12px; left: 12px; border-right: none; border-bottom: none; }
+.cert-seal::after { bottom: 12px; right: 12px; border-left: none; border-top: none; }
+.cert-seal-mark {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1;
+}
+.cert-seal-rule {
+  width: 56px;
+  height: 1px;
+  background: var(--gold);
+}
+.cert-seal-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.cert-seal-issued {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+/* §07 brand — two side-by-side cards */
+.brand-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 24px;
+}
+.brand-card {
+  background: var(--paper-pure);
+  border: 1px solid var(--rule);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 260px;
+}
+.brand-card-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.brand-card-name {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--ink);
+  margin-top: 4px;
+}
+.brand-card-rule {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  margin: 6px 0 4px;
+}
+.brand-card-meta {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.brand-card-body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-top: 4px;
+}
+
+/* §08 studio — 5-card grid */
+.studio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+.studio-grid > .app-card:nth-child(4) { grid-column: 1 / span 2; grid-row: 2; }
+.studio-grid > .app-card:nth-child(5) { grid-column: 3 / 4; grid-row: 2; }
+.app-card {
+  background: var(--paper-pure);
+  border: 1px solid var(--rule);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 200px;
+}
+.app-card-status {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border: 0.5px solid var(--rule);
+  width: fit-content;
+  color: var(--ink-soft);
+}
+.app-card-status.is-live {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.app-card-status.is-queued {
+  color: var(--ink-soft);
+}
+.app-card-status.is-shelved {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.app-card-status.is-dev {
+  color: var(--ink);
+}
+.app-card-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-top: 6px;
+}
+.app-card-cat {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+.app-card-note {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 0.5px solid var(--rule);
+}
+.app-card-note strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* §09 enterprise — partnership structure */
+.partnership-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 16px;
+  border-top: 0.5px solid var(--rule);
+}
+.partnership-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 0.5px solid var(--rule);
+  align-items: baseline;
+}
+.partnership-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+}
+.partnership-name.is-customer { color: var(--gold); }
+.partnership-role {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* Responsive collapses */
+@media (max-width: 900px) {
+  .plate-page .plate-grid { grid-template-columns: 1fr; gap: 32px; }
+  .brand-pair { grid-template-columns: 1fr; }
+  .studio-grid { grid-template-columns: 1fr; }
+  .studio-grid > .app-card:nth-child(4),
+  .studio-grid > .app-card:nth-child(5) { grid-column: auto; grid-row: auto; }
+  .partnership-row { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* ═════════════════════════════════════════════════════
+   PRINT — A4 PDF export (paginated layout becomes vertical pages)
+   ═════════════════════════════════════════════════════ */
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm;
+  }
+
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  html, body {
+    overflow: visible !important;
+    height: auto !important;
+    background: #FFFFFF !important;
+  }
+
+  .report-header,
+  .spine,
+  .page-nav,
+  .scroll-glyph {
+    display: none !important;
+  }
+
+  .report-main {
+    position: static !important;
+    overflow: visible !important;
+    padding-left: 0 !important;
+  }
+
+  .pages-track {
+    display: block !important;
+    transform: none !important;
+    transition: none !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .page {
+    width: auto !important;
+    height: auto !important;
+    min-height: auto !important;
+    page-break-after: always;
+    overflow: visible !important;
+    flex-shrink: 1 !important;
+    padding: 0 !important;
+  }
+  .page:last-child {
+    page-break-after: auto;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .cover-hairline {
+    transform: scaleX(1) !important;
+  }
+
+  .cover {
+    height: auto !important;
+    min-height: auto !important;
+  }
+  .cover-title { font-size: 64pt !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="report-header" id="reportHeader">
+  <span class="t-issue" data-en="CapitalTrend · Monthly Report · May 2026" data-pt="CapitalTrend · Relatório Mensal · Maio 2026">CapitalTrend · Monthly Report · May 2026</span>
+  <button class="lang-toggle" id="langToggle" aria-label="Switch language" type="button">
+    <span class="lang-opt" data-lang-set="en">EN</span>
+    <span class="lang-sep" aria-hidden="true">·</span>
+    <span class="lang-opt" data-lang-set="pt">pt</span>
+  </button>
+</header>
+
+<aside class="spine" id="spine" aria-label="Pages">
+  <!-- spine-line buttons rendered by JS based on number of .page elements -->
+</aside>
+
+<main class="report-main">
+  <div class="pages-track" id="pagesTrack">
+    <section class="page cover" aria-labelledby="cover-title">
+      <div class="cover-meta">
+        <span class="cover-org t-eyebrow reveal" style="--stagger-i:0">CAPITALTREND GROUP</span>
+        <span class="cover-issue t-meta reveal" data-en="Monthly Report · May 2026" data-pt="Relatório Mensal · Maio 2026" style="--stagger-i:1">Monthly Report · May 2026</span>
+        <div class="cover-hairline" aria-hidden="true"></div>
+      </div>
+
+      <div class="cover-center">
+        <h1 id="cover-title" class="cover-title t-display-xl reveal em-mark" data-en="Built to Scale, Disciplined to Last" data-pt="Feito para escalar, disciplinado para durar" style="--stagger-i:3">Built to Scale, Disciplined to Last</h1>
+        <p class="cover-lede t-lede reveal" data-en="How a validated funnel, pushed to its ceiling, showed us exactly where to scale next." data-pt="Como um funil validado, levado ao seu teto, nos mostrou exatamente onde escalar a seguir." style="--stagger-i:4">How a validated funnel, pushed to its ceiling, showed us exactly where to scale next.</p>
+      </div>
+
+      <div class="cover-footer">
+        <span class="cover-place t-meta reveal" data-en="Dubai · Meydan Free Zone · May 2026" data-pt="Dubai · Meydan Free Zone · Maio 2026" style="--stagger-i:5">Dubai · Meydan Free Zone · May 2026</span>
+        <span class="scroll-glyph" id="scrollGlyph" aria-hidden="true"></span>
+      </div>
+    </section>
+
+        <section class="page snapshot" aria-labelledby="snapshot-title">
+      <div class="container">
+        <div class="snapshot-text">
+          <span class="snapshot-num t-section-num reveal em-mark" style="--stagger-i:0">01</span>
+          <span class="snapshot-eyebrow t-eyebrow reveal" data-en="EXECUTIVE SNAPSHOT" data-pt="VISÃO EXECUTIVA" style="--stagger-i:1">EXECUTIVE SNAPSHOT</span>
+          <h1 id="snapshot-title" class="snapshot-title t-h1 reveal" data-en="Where We Stand" data-pt="Onde estamos" style="--stagger-i:2">Where We Stand</h1>
+          <p class="snapshot-lede t-lede reveal" data-en="May was the month we pushed a validated funnel to its ceiling — on purpose." data-pt="Maio foi o mês em que empurramos um funil validado até o seu teto — de propósito." style="--stagger-i:3">May was the month we pushed a validated funnel to its ceiling — on purpose.</p>
+          <p class="snapshot-body t-body reveal" data-en="Three paid launches in sequence, one price held across all three, one new-market test cut early, and one new revenue front opened. The funnel's financial model held — fixed ticket, positive aggregate contribution — and what scaled alongside it was our map of exactly where the funnel saturates. The pages that follow document each move with the same rule: what April promised, what May delivered, what we queued, and why." data-pt="Três lançamentos pagos em sequência, um preço mantido nos três, um teste de novo mercado cortado cedo e uma nova frente de receita aberta. O modelo financeiro do funil se sustentou — ticket fixo, contribuição agregada positiva — e o que escalou junto foi o nosso mapa de exatamente onde o funil satura. As páginas a seguir documentam cada movimento com a mesma régua: o que abril prometeu, o que maio entregou, o que colocamos em fila e por quê." style="--stagger-i:4">Three paid launches in sequence, one price held across all three, one new-market test cut early, and one new revenue front opened. The funnel's financial model held — fixed ticket, positive aggregate contribution — and what scaled alongside it was our map of exactly where the funnel saturates. The pages that follow document each move with the same rule: what April promised, what May delivered, what we queued, and why.</p>
+        </div>
+
+        <div class="specimen-plate reveal" style="--stagger-i:5" aria-label="May 2026 KPIs">
+          <div class="kpi">
+            <span class="kpi-num" data-count-to="19051">0</span>
+            <span class="kpi-label t-eyebrow" data-en="May revenue · USD (Traidon)" data-pt="Receita de maio · USD (Traidon)">May revenue · USD (Traidon)</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-num" data-count-to="1.55" data-decimals="2">0.00</span>
+            <span class="kpi-label t-eyebrow" data-en="Funnel ROAS · aggregate" data-pt="ROAS do funil · agregado">Funnel ROAS · aggregate</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-num" data-count-to="251">0</span>
+            <span class="kpi-label t-eyebrow" data-en="Traidon ticket · USD, held ×3" data-pt="Ticket Traidon · USD, mantido ×3">Traidon ticket · USD, held ×3</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-num" data-count-to="41">0</span>
+            <span class="kpi-label t-eyebrow" data-en="Traidon subscriptions sold" data-pt="Assinaturas Traidon vendidas">Traidon subscriptions sold</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-num" data-count-to="654">0</span>
+            <span class="kpi-label t-eyebrow" data-en="Front-end sales · 20 Setups" data-pt="Vendas de front-end · 20 Setups">Front-end sales · 20 Setups</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-num" data-count-to="6740">0</span>
+            <span class="kpi-label t-eyebrow" data-en="Positive contribution · USD" data-pt="Contribuição positiva · USD">Positive contribution · USD</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-num" data-count-to="3">0</span>
+            <span class="kpi-label t-eyebrow" data-en="Paid launches sequenced" data-pt="Lançamentos pagos sequenciados">Paid launches sequenced</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi-num" data-count-to="6">0</span>
+            <span class="kpi-label t-eyebrow" data-en="Brands on AI loop" data-pt="Marcas no loop de IA">Brands on AI loop</span>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section class="page text-page thesis" aria-labelledby="thesis-title">
+          <div class="container">
+            <header class="text-header">
+              <span class="t-section-num reveal em-mark" style="--stagger-i:0">02</span>
+              <span class="t-eyebrow reveal" data-en="THE MAY THESIS" data-pt="A TESE DE MAIO" style="--stagger-i:1">THE MAY THESIS</span>
+              <h1 id="thesis-title" class="t-h1 reveal" data-en="Scale tells you where the ceiling is" data-pt="Escalar revela onde está o teto" style="--stagger-i:2">Scale tells you where the ceiling is</h1>
+              <div class="text-hairline" aria-hidden="true"></div>
+            </header>
+            <div class="text-body">
+              <p class="t-lede reveal" style="--stagger-i:3" data-en="In April we validated a funnel. In May we scaled it on purpose — because the only way to learn where a funnel breaks is to push it until it does." data-pt="Em abril validamos um funil. Em maio o escalamos de propósito — porque a única forma de descobrir onde um funil quebra é empurrá-lo até quebrar.">In April we validated a funnel. In May we scaled it on purpose — because the only way to learn where a funnel breaks is to push it until it does.</p>
+              <p class="reveal" style="--stagger-i:4" data-en="The April rule is unchanged and auditable: concentrate finite cash on the bets that return fastest, and keep every deferral on a clock. May added a second principle on top. Once a model is validated, scaling it is itself a measurement. We raised spend across three sequential launches and read the same funnel under three different loads — warm audience, medium scale, and full scale with operational adversity." data-pt="A regra de abril segue inalterada e auditável: concentrar o caixa finito nas apostas que retornam mais rápido e manter cada adiamento sob um relógio. Maio acrescentou um segundo princípio. Uma vez validado, escalar um modelo é, em si, uma medição. Aumentamos a verba ao longo de três lançamentos sequenciais e lemos o mesmo funil sob três cargas diferentes — audiência quente, escala média e escala plena com adversidade operacional.">The April rule is unchanged and auditable: concentrate finite cash on the bets that return fastest, and keep every deferral on a clock. May added a second principle on top. Once a model is validated, scaling it is itself a measurement. We raised spend across three sequential launches and read the same funnel under three different loads — warm audience, medium scale, and full scale with operational adversity.</p>
+              <p class="reveal" style="--stagger-i:5" data-en="Three facts came out of that measurement. The Traidon ticket held at exactly US$ 251 across all three launches — the product is priced right. The bottleneck is the front-end cost of acquiring cold leads — front CPA, not the offer. And when a separate bet, the US Claude Course test, failed its hypothesis, we cut it at US$ 3,700 rather than feed it. Built to scale on what works; disciplined enough to stop what does not." data-pt="Três fatos saíram dessa medição. O ticket do Traidon se manteve em exatamente US$ 251 nos três lançamentos — o produto está precificado certo. O gargalo é o custo de front-end para captar leads frios — o CPA de front, não a oferta. E quando uma aposta à parte, o teste do Claude Course nos EUA, falhou sua hipótese, a cortamos em US$ 3.700 em vez de alimentá-la. Feito para escalar no que funciona; disciplinado o bastante para parar o que não funciona.">Three facts came out of that measurement. The Traidon ticket held at exactly US$ 251 across all three launches — the product is priced right. The bottleneck is the front-end cost of acquiring cold leads — front CPA, not the offer. And when a separate bet, the US Claude Course test, failed its hypothesis, we cut it at US$ 3,700 rather than feed it. Built to scale on what works; disciplined enough to stop what does not.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="page text-page errata" aria-labelledby="errata-title">
+          <div class="container">
+            <header class="text-header">
+              <span class="t-section-num reveal em-mark" style="--stagger-i:0">03</span>
+              <span class="t-eyebrow reveal" data-en="AGAINST THE APRIL PLAN" data-pt="FRENTE AO PLANO DE ABRIL" style="--stagger-i:1">AGAINST THE APRIL PLAN</span>
+              <h1 id="errata-title" class="t-h1 reveal" data-en="What We Said, What We Did" data-pt="O que dissemos, o que fizemos" style="--stagger-i:2">What We Said, What We Did</h1>
+              <div class="text-hairline" aria-hidden="true"></div>
+            </header>
+            <div class="text-body">
+              <p class="t-lede reveal" style="--stagger-i:3" data-en="We hold this report to a simple discipline: state what we committed to, then what we did. In April we set a sequenced plan for May. We delivered the two moves that carry cash — Traidon’s paid launches and the funnel scale-up — ran one new-market test and cut it early when the data invalidated it, and queued the rest by deliberate choice." data-pt="Mantemos este relatório sob uma disciplina simples: declarar o que nos comprometemos a fazer e, então, o que fizemos. Em abril definimos um plano sequenciado para maio. Cumprimos os dois movimentos que trazem caixa — os lançamentos pagos do Traidon e a escalada do funil — rodamos um teste de novo mercado e o cortamos cedo quando o dado o invalidou, e colocamos o restante em fila por escolha deliberada.">We hold this report to a simple discipline: state what we committed to, then what we did. In April we set a sequenced plan for May. We delivered the two moves that carry cash — Traidon’s paid launches and the funnel scale-up — ran one new-market test and cut it early when the data invalidated it, and queued the rest by deliberate choice.</p>
+              <table class="errata-table reveal" style="--stagger-i:4">
+                <thead>
+                  <tr>
+                    <th data-en="April commitment" data-pt="Compromisso de abril">April commitment</th>
+                    <th data-en="May status" data-pt="Status em maio">May status</th>
+                    <th data-en="Decision" data-pt="Decisão">Decision</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-en="TrAIdon opens for paid subscription" data-pt="TrAIdon abre para assinatura paga">TrAIdon opens for paid subscription</td>
+                    <td><span class="errata-glyph is-done" aria-hidden="true">✓</span><span data-en="Three paid launches · ticket held at US$ 251" data-pt="Três lançamentos pagos · ticket mantido em US$ 251">Three paid launches · ticket held at US$ 251</span></td>
+                    <td data-en="Delivered" data-pt="Entregue">Delivered</td>
+                  </tr>
+                  <tr>
+                    <td data-en="Scale: 20 Setups → TrAIdon" data-pt="Escala: 20 Setups → TrAIdon">Scale: 20 Setups → TrAIdon</td>
+                    <td><span class="errata-glyph is-done" aria-hidden="true">✓</span><span data-en="Budget +58% · saturation point mapped" data-pt="Verba +58% · ponto de saturação mapeado">Budget +58% · saturation point mapped</span></td>
+                    <td data-en="Delivered" data-pt="Entregue">Delivered</td>
+                  </tr>
+                  <tr>
+                    <td data-en="Claude Course · new-market entry (US)" data-pt="Claude Course · entrada em novo mercado (EUA)">Claude Course · new-market entry (US)</td>
+                    <td><span class="errata-glyph is-deferred" aria-hidden="true">◐</span><span data-en="Tested, invalidated, cut at US$ 3,700" data-pt="Testado, invalidado, cortado em US$ 3.700">Tested, invalidated, cut at US$ 3,700</span></td>
+                    <td data-en="Redirected to Health niche" data-pt="Redirecionado ao nicho de Saúde">Redirected to Health niche</td>
+                  </tr>
+                  <tr>
+                    <td data-en="Mentoria Claude — global, USA-first" data-pt="Mentoria Claude — global, EUA primeiro">Mentoria Claude — global, USA-first</td>
+                    <td><span class="errata-glyph is-deferred" aria-hidden="true">◐</span><span data-en="Deferred" data-pt="Adiado">Deferred</span></td>
+                    <td data-en="Sequenced behind the base-first learning" data-pt="Sequenciado atrás do aprendizado base-primeiro">Sequenced behind the base-first learning</td>
+                  </tr>
+                  <tr>
+                    <td data-en="Direct global sales tests" data-pt="Testes de vendas globais diretas">Direct global sales tests</td>
+                    <td><span class="errata-glyph is-deferred" aria-hidden="true">◐</span><span data-en="Rescheduled" data-pt="Reagendado">Rescheduled</span></td>
+                    <td data-en="Resumes after João-network expansion" data-pt="Retoma após expansão na rede do João">Resumes after João-network expansion</td>
+                  </tr>
+                  <tr>
+                    <td data-en="Organic funnels · Burburinho / GeoNews" data-pt="Funis orgânicos · Burburinho / GeoNews">Organic funnels · Burburinho / GeoNews</td>
+                    <td><span class="errata-glyph is-deferred" aria-hidden="true">◐</span><span data-en="Backlog" data-pt="Backlog">Backlog</span></td>
+                    <td data-en="Intentional focus on the paid funnel" data-pt="Foco intencional no funil pago">Intentional focus on the paid funnel</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="errata-footnote reveal" style="--stagger-i:5" data-en="Deferred is not cancelled. See §10 — Sequencing — for the dated re-engagement trigger of each item." data-pt="Adiado não é cancelado. Ver §10 — Sequenciamento — para o gatilho datado de retomada de cada item.">Deferred is not cancelled. See §10 — Sequencing — for the dated re-engagement trigger of each item.</p>
+            </div>
+          </div>
+        </section>
+
+    <section class="page text-page plate-page partnership" aria-labelledby="partnership-title">
+          <div class="container">
+            <header class="text-header">
+              <span class="t-section-num reveal em-mark" style="--stagger-i:0">04</span>
+              <span class="t-eyebrow reveal" data-en="ANTHROPIC CERTIFICATION" data-pt="CERTIFICAÇÃO ANTHROPIC" style="--stagger-i:1">ANTHROPIC CERTIFICATION</span>
+              <h1 id="partnership-title" class="t-h1 reveal" data-en="From vendor to certified partner" data-pt="De fornecedor a parceiro certificado" style="--stagger-i:2">From vendor to certified partner</h1>
+              <div class="text-hairline" aria-hidden="true"></div>
+            </header>
+            <div class="plate-grid">
+              <div class="plate-text">
+                <p class="t-lede reveal" style="--stagger-i:3" data-en="Anthropic — maker of Claude, used by Apple, Stripe, Salesforce and regulated sectors broadly — granted CapitalTrend official partner status in April 2026." data-pt="A Anthropic — fabricante do Claude, usado por Apple, Stripe, Salesforce e setores regulados em geral — concedeu à CapitalTrend o status de parceiro oficial em abril de 2026.">Anthropic — maker of Claude, used by Apple, Stripe, Salesforce and regulated sectors broadly — granted CapitalTrend official partner status in April 2026.</p>
+                <p class="reveal" style="--stagger-i:4" data-en="The condition is signed: seal, contract, and a structure of commissions and discounts on usage and resale. The most relevant gain is not direct financial — it is positioning. Most &quot;AI consulting&quot; vendors promise transformation without formal approval from any of the labs that build the models. Leaving that pack and joining the certified-partner group changes the conversation with any enterprise customer — in São Paulo, in New York, in Dubai, in Madrid." data-pt="A condição é assinada: selo, contrato, e estrutura de comissões e descontos sobre uso e revenda. O ganho mais relevante não é financeiro direto — é de posicionamento. A maioria dos fornecedores de &quot;consultoria de IA&quot; promete transformação sem ter aprovação formal de nenhum dos laboratórios que fabricam os modelos. Sair desse pelotão e entrar no grupo dos parceiros certificados muda a conversa com qualquer cliente enterprise — em São Paulo, em Nova York, em Dubai, em Madri.">The condition is signed: seal, contract, and a structure of commissions and discounts on usage and resale. The most relevant gain is not direct financial — it is positioning. Most "AI consulting" vendors promise transformation without formal approval from any of the labs that build the models. Leaving that pack and joining the certified-partner group changes the conversation with any enterprise customer — in São Paulo, in New York, in Dubai, in Madrid.</p>
+                <p class="reveal" style="--stagger-i:5" data-en="The certification remains the floor we sell from. It amplifies the entire AI solutions portfolio — Vinci for SAP finance, Mentoria Claude, and the new Health-sector SaaS — without any of them depending exclusively on Anthropic. It is an amplifier, not a support. The May lesson on Claude Course (see §03) did not touch this floor: we cut a single go-to-market test, not the partnership that underwrites the stack." data-pt="A certificação segue sendo o piso a partir do qual vendemos. Ela agrega valor a todo o portfolio de soluções de IA — o Vinci para finanças em SAP, a Mentoria Claude e o novo SaaS do setor de Saúde — sem que nenhuma delas dependa exclusivamente da Anthropic. É um amplificador, não um suporte. A lição de maio sobre o Claude Course (ver §03) não tocou esse piso: cortamos um único teste de go-to-market, não a parceria que sustenta o stack.">The certification remains the floor we sell from. It amplifies the entire AI solutions portfolio — Vinci for SAP finance, Mentoria Claude, and the new Health-sector SaaS — without any of them depending exclusively on Anthropic. It is an amplifier, not a support. The May lesson on Claude Course (see §03) did not touch this floor: we cut a single go-to-market test, not the partnership that underwrites the stack.</p>
+              </div>
+              <div class="cert-seal reveal" style="--stagger-i:6">
+                <div class="cert-seal-mark">Anthropic</div>
+                <div class="cert-seal-rule"></div>
+                <div class="cert-seal-tag" data-en="CERTIFIED PARTNER" data-pt="PARCEIRO CERTIFICADO">CERTIFIED PARTNER</div>
+                <div class="cert-seal-issued" data-en="Issued April 2026" data-pt="Emitido em abril de 2026">Issued April 2026</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="page text-page plate-page product" aria-labelledby="product-title">
+          <div class="container">
+            <header class="text-header">
+              <span class="t-section-num reveal em-mark" style="--stagger-i:0">05</span>
+              <span class="t-eyebrow reveal" data-en="TRAIDON · DISTRIBUTED BY BITGET" data-pt="TRAIDON · DISTRIBUÍDO PELA BITGET" style="--stagger-i:1">TRAIDON · DISTRIBUTED BY BITGET</span>
+              <h1 id="product-title" class="t-h1 reveal" data-en="Three launches, one fixed price" data-pt="Três lançamentos, um preço fixo" style="--stagger-i:2">Three launches, one fixed price</h1>
+              <div class="text-hairline" aria-hidden="true"></div>
+            </header>
+            <div class="plate-grid">
+              <div class="plate-text">
+                <p class="t-lede reveal" style="--stagger-i:3" data-en="In May, TrAIdon went from listed to launched — three paid rounds through the 20 Setups funnel, on our own channel and on Bitget distribution." data-pt="Em maio, o TrAIdon passou de listado a lançado — três rodadas pagas pelo funil 20 Setups, em canal próprio e na distribuição Bitget.">In May, TrAIdon went from listed to launched — three paid rounds through the 20 Setups funnel, on our own channel and on Bitget distribution.</p>
+                <p class="reveal" style="--stagger-i:4" data-en="It is a web application that analyses the trader's operations in real time against a current set of forty strategies, returning tactical reads without requiring the user to assemble the analysis themselves. The model is the one the group began with 2K and M4 Markets: a proprietary platform built from day one with a distribution partner in mind." data-pt="É uma aplicação web que analisa as operações do trader em tempo real contra um conjunto atualmente de quarenta estratégias diferentes, devolvendo leitura tática sem que o usuário precise montar análise por conta própria. O modelo é o que o grupo começou com o 2K e a M4 Markets: uma plataforma proprietária construída desde o início com parceiro de distribuição em mente.">It is a web application that analyses the trader's operations in real time against a current set of forty strategies, returning tactical reads without requiring the user to assemble the analysis themselves. The model is the one the group began with 2K and M4 Markets: a proprietary platform built from day one with a distribution partner in mind.</p>
+                <p class="reveal" style="--stagger-i:5" data-en="Across the three May launches the subscription held at exactly US$ 251, selling 41 subscriptions on 654 front-end tickets, for US$ 19,051 in revenue. The Bitget distribution partnership — USD 5,000/mo fixed plus variable commissions — runs alongside the own channel, with strong reach across Asia, Latin America, and the Middle East. The decisive read: the product holds its price even as audiences cool. The lever to work now is acquisition cost, not the offer." data-pt="Nos três lançamentos de maio a assinatura se manteve em exatamente US$ 251, vendendo 41 assinaturas sobre 654 tickets de front-end, somando US$ 19.051 em receita. A parceria de distribuição com a Bitget — USD 5.000/mês fixo mais comissões variáveis — roda em paralelo ao canal próprio, com forte alcance em Ásia, América Latina e Oriente Médio. A leitura decisiva: o produto mantém o preço mesmo com audiências esfriando. A alavanca a trabalhar agora é o custo de aquisição, não a oferta.">Across the three May launches the subscription held at exactly US$ 251, selling 41 subscriptions on 654 front-end tickets, for US$ 19,051 in revenue. The Bitget distribution partnership — USD 5,000/mo fixed plus variable commissions — runs alongside the own channel, with strong reach across Asia, Latin America, and the Middle East. The decisive read: the product holds its price even as audiences cool. The lever to work now is acquisition cost, not the offer.</p>
+              </div>
+              <div class="plate reveal" style="--stagger-i:6">
+                <span class="plate-eyebrow" data-en="PRODUCT SPEC" data-pt="ESPECIFICAÇÕES">PRODUCT SPEC</span>
+                <div class="plate-title">TrAIdon</div>
+                <span class="plate-rule"></span>
+                <div class="plate-stats">
+                  <div class="plate-stat">
+                    <span class="plate-stat-label" data-en="TYPE" data-pt="TIPO">TYPE</span>
+                    <span class="plate-stat-value" data-en="SaaS web trading platform · recurring subscription" data-pt="Plataforma SaaS web · assinatura recorrente">SaaS web trading platform · recurring subscription</span>
+                  </div>
+                  <div class="plate-stat">
+                    <span class="plate-stat-label" data-en="ENGINE" data-pt="MOTOR">ENGINE</span>
+                    <span class="plate-stat-value" data-en="40 trading strategies, real-time analysis" data-pt="40 estratégias de trading, análise em tempo real">40 trading strategies, real-time analysis</span>
+                  </div>
+                  <div class="plate-stat">
+                    <span class="plate-stat-label" data-en="CHANNELS" data-pt="CANAIS">CHANNELS</span>
+                    <span class="plate-stat-value" data-en="Own (CapitalTrend) + Bitget (partnership)" data-pt="Próprio (CapitalTrend) + Bitget (parceria)">Own (CapitalTrend) + Bitget (partnership)</span>
+                  </div>
+                  <div class="plate-stat">
+                    <span class="plate-stat-label" data-en="FIXED" data-pt="FIXO">FIXED</span>
+                    <span class="plate-stat-value">USD 5,000 / month <span style="color:var(--ink-soft)" data-en="(Bitget)" data-pt="(Bitget)">(Bitget)</span></span>
+                  </div>
+                  <div class="plate-stat">
+                    <span class="plate-stat-label" data-en="VARIABLE" data-pt="VARIÁVEL">VARIABLE</span>
+                    <span class="plate-stat-value" data-en="Commissions on customer operations" data-pt="Comissões sobre operações dos clientes">Commissions on customer operations</span>
+                  </div>
+                  <div class="plate-stat">
+                    <span class="plate-stat-label" data-en="TICKET" data-pt="TICKET">TICKET</span>
+                    <span class="plate-stat-value">US$ 251 <span style="color:var(--ink-soft)" data-en="· held across 3 launches" data-pt="· mantido nos 3 lançamentos">· held across 3 launches</span></span>
+                  </div>
+                  <div class="plate-stat">
+                    <span class="plate-stat-label" data-en="STATUS" data-pt="STATUS">STATUS</span>
+                    <span class="plate-stat-value" style="color:var(--gold);font-weight:500;" data-en="Live · 3 paid launches (May)" data-pt="No ar · 3 lançamentos pagos (maio)">Live · 3 paid launches (May)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="page text-page funnel" aria-labelledby="funnel-title">
+          <div class="container">
+            <header class="text-header">
+              <span class="t-section-num reveal em-mark" style="--stagger-i:0">06</span>
+              <span class="t-eyebrow reveal" data-en="DESAFIO 20 SETUPS · SCALED" data-pt="DESAFIO 20 SETUPS · ESCALADO" style="--stagger-i:1">DESAFIO 20 SETUPS · SCALED</span>
+              <h1 id="funnel-title" class="t-h1 reveal" data-en="The funnel we scaled until it showed its ceiling" data-pt="O funil que escalamos até mostrar seu teto" style="--stagger-i:2">The funnel we scaled until it showed its ceiling</h1>
+              <div class="text-hairline" aria-hidden="true"></div>
+            </header>
+            <div class="text-body">
+              <p class="t-lede reveal" style="--stagger-i:3" data-en="The funnel that paid for itself in April was put under load in May. Three launches, rising budget, and one number that explains the whole story: front CPA." data-pt="O funil que se pagou em abril foi colocado sob carga em maio. Três lançamentos, verba crescente, e um número que explica toda a história: o CPA de front-end.">The funnel that paid for itself in April was put under load in May. Three launches, rising budget, and one number that explains the whole story: front CPA.</p>
+              <div class="funnel-summary reveal" style="--stagger-i:4">
+                <p data-en="Across three launches we lifted spend from US$ 2,772 to US$ 5,166. Revenue and conversion fell as we bought colder traffic — yet the Traidon ticket never moved off US$ 251, and the front-end order bumps actually tripled (8 → 21). The number that tells the story is the front CPA: US$ 10.42 → US$ 18.45 → US$ 34.21. With a fixed ticket and ~5% back-end conversion, the ROAS slide is a mathematical consequence of acquisition cost. The funnel still closed the quarter with US$ 6,740 in positive contribution. Front CPA — not the product — is the metric June attacks, with new creative and a second distribution network." data-pt="Ao longo de três lançamentos elevamos a verba de US$ 2.772 para US$ 5.166. Receita e conversão caíram conforme compramos tráfego mais frio — mas o ticket do Traidon nunca saiu de US$ 251, e os order bumps de front-end triplicaram (8 → 21). O número que conta a história é o CPA de front: US$ 10,42 → US$ 18,45 → US$ 34,21. Com ticket fixo e ~5% de conversão de back-end, a queda do ROAS é consequência matemática do custo de aquisição. O funil ainda fechou o período com US$ 6.740 de contribuição positiva. O CPA de front — não o produto — é a métrica que junho ataca, com novos criativos e uma segunda rede de distribuição.">Across three launches we lifted spend from US$ 2,772 to US$ 5,166. Revenue and conversion fell as we bought colder traffic — yet the Traidon ticket never moved off US$ 251, and the front-end order bumps actually tripled (8 → 21). The number that tells the story is the front CPA: US$ 10.42 → US$ 18.45 → US$ 34.21. With a fixed ticket and ~5% back-end conversion, the ROAS slide is a mathematical consequence of acquisition cost. The funnel still closed the quarter with US$ 6,740 in positive contribution. Front CPA — not the product — is the metric June attacks, with new creative and a second distribution network.</p>
+                <div>
+                  <div class="funnel-callout">251</div>
+                  <div class="funnel-callout-label" data-en="Fixed ticket · USD, held ×3" data-pt="Ticket fixo · USD, mantido ×3">Fixed ticket · USD, held ×3</div>
+                </div>
+              </div>
+              <div class="funnel-chart reveal" style="--stagger-i:5">
+                <div class="funnel-row is-hot">
+                  <span class="funnel-step">LP01</span>
+                  <span class="funnel-label" data-en="Validation" data-pt="Validação">Validation<span class="funnel-mech" data-en="Spend US$ 2,772 → rev US$ 8,658 · conv 7.9% · CPA US$ 10.42" data-pt="Verba US$ 2.772 → rec US$ 8.658 · conv 7,9% · CPA US$ 10,42">Spend US$ 2,772 → rev US$ 8,658 · conv 7.9% · CPA US$ 10.42</span></span>
+                  <span class="funnel-status" data-en="ROAS 3.1×" data-pt="ROAS 3,1×">ROAS 3.1×</span>
+                </div>
+                <div class="funnel-row">
+                  <span class="funnel-step">LP02</span>
+                  <span class="funnel-label" data-en="Scale test · budget +58%" data-pt="Teste de escala · verba +58%">Scale test · budget +58%<span class="funnel-mech" data-en="Spend US$ 4,372 → rev US$ 6,371 · conv 5.5% · CPA US$ 18.45" data-pt="Verba US$ 4.372 → rec US$ 6.371 · conv 5,5% · CPA US$ 18,45">Spend US$ 4,372 → rev US$ 6,371 · conv 5.5% · CPA US$ 18.45</span></span>
+                  <span class="funnel-status" data-en="ROAS 1.5×" data-pt="ROAS 1,5×">ROAS 1.5×</span>
+                </div>
+                <div class="funnel-row">
+                  <span class="funnel-step">LP03</span>
+                  <span class="funnel-label" data-en="Scale + adversity · Meta block" data-pt="Escala + adversidade · bloqueio Meta">Scale + adversity · Meta block<span class="funnel-mech" data-en="Spend US$ 5,166 → rev US$ 4,022 · conv 4.6% · CPA US$ 34.21 · order bumps tripled" data-pt="Verba US$ 5.166 → rec US$ 4.022 · conv 4,6% · CPA US$ 34,21 · order bumps triplicaram">Spend US$ 5,166 → rev US$ 4,022 · conv 4.6% · CPA US$ 34.21 · order bumps tripled</span></span>
+                  <span class="funnel-status" data-en="ROAS 0.8×" data-pt="ROAS 0,8×">ROAS 0.8×</span>
+                </div>
+                <div class="funnel-row">
+                  <span class="funnel-step">Σ</span>
+                  <span class="funnel-label" data-en="Consolidated · 3 launches" data-pt="Consolidado · 3 lançamentos">Consolidated · 3 launches<span class="funnel-mech" data-en="Spend US$ 12,311 → rev US$ 19,051 · 41 Traidon · 654 front-end" data-pt="Verba US$ 12.311 → rec US$ 19.051 · 41 Traidon · 654 front-end">Spend US$ 12,311 → rev US$ 19,051 · 41 Traidon · 654 front-end</span></span>
+                  <span class="funnel-status" data-en="ROAS 1.55× · +US$ 6,740" data-pt="ROAS 1,55× · +US$ 6.740">ROAS 1.55× · +US$ 6,740</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page text-page brand" aria-labelledby="brand-title">
+          <div class="container">
+            <header class="text-header">
+              <span class="t-section-num reveal em-mark" style="--stagger-i:0">07</span>
+              <span class="t-eyebrow reveal" data-en="STONELAKE · ULTIMATE CHART TRADE" data-pt="STONELAKE · ULTIMATE CHART TRADE" style="--stagger-i:1">STONELAKE · ULTIMATE CHART TRADE</span>
+              <h1 id="brand-title" class="t-h1 reveal" data-en="Owned channel, and the order-bump lever" data-pt="Canal próprio e a alavanca dos order bumps" style="--stagger-i:2">Owned channel, and the order-bump lever</h1>
+              <div class="text-hairline" aria-hidden="true"></div>
+            </header>
+            <div class="text-body">
+              <p class="t-lede reveal" style="--stagger-i:3" data-en="StoneLake is the group's trading brand in Brazil; Ultimate Chart Trade is the MT5 tool, unlocked from broker exclusivity. In May, UCT was the funnel's bright spot — the one front-end lever that moved the right way under scale." data-pt="A StoneLake é a marca de trading do grupo no Brasil; o Ultimate Chart Trade é a ferramenta sobre MT5, liberada da exclusividade com broker. Em maio, o UCT foi o ponto positivo do funil — a única alavanca de front-end que se moveu na direção certa sob escala.">StoneLake is the group's trading brand in Brazil; Ultimate Chart Trade is the MT5 tool, unlocked from broker exclusivity. In May, UCT was the funnel's bright spot — the one front-end lever that moved the right way under scale.</p>
+              <div class="brand-pair reveal" style="--stagger-i:4">
+                <article class="brand-card">
+                  <span class="brand-card-tag" data-en="OWNED CHANNEL · BRAZIL" data-pt="CANAL PRÓPRIO · BRASIL">OWNED CHANNEL · BRAZIL</span>
+                  <div class="brand-card-name">StoneLake Trading</div>
+                  <div class="brand-card-rule"></div>
+                  <div class="brand-card-meta" data-en="Established Instagram audience" data-pt="Audiência estabelecida no Instagram">Established Instagram audience</div>
+                  <p class="brand-card-body" data-en="One of the group's organic distribution channels for TrAIdon and Ultimate Chart Trade. Operates with a base already built on Instagram." data-pt="Um dos canais de distribuição orgânica do grupo para TrAIdon e Ultimate Chart Trade. Opera com base já construída no Instagram.">One of the group's organic distribution channels for TrAIdon and Ultimate Chart Trade. Operates with a base already built on Instagram.</p>
+                </article>
+                <article class="brand-card">
+                  <span class="brand-card-tag" data-en="MT5 TOOL · UNLOCKED" data-pt="FERRAMENTA MT5 · DESTRAVADA">MT5 TOOL · UNLOCKED</span>
+                  <div class="brand-card-name">Ultimate Chart Trade</div>
+                  <div class="brand-card-rule"></div>
+                  <div class="brand-card-meta" data-en="MT5 — used by ~90% of global CFD market" data-pt="MT5 — usado por ~90% do mercado global de CFD">MT5 — used by ~90% of global CFD market</div>
+                  <p class="brand-card-body" data-en="Sold as a front-end order bump inside the 20 Setups funnel, UCT bumps tripled across the three launches — from 8 to 21 — proof the front ticket can be lifted even as traffic cools. Unlocked from single-broker exclusivity, it now compounds the funnel instead of sitting idle." data-pt="Vendido como order bump de front-end dentro do funil 20 Setups, os bumps de UCT triplicaram ao longo dos três lançamentos — de 8 para 21 — prova de que o ticket de front pode ser elevado mesmo com tráfego esfriando. Livre da exclusividade com um único broker, agora compõe o funil em vez de ficar ocioso.">Sold as a front-end order bump inside the 20 Setups funnel, UCT bumps tripled across the three launches — from 8 to 21 — proof the front ticket can be lifted even as traffic cools. Unlocked from single-broker exclusivity, it now compounds the funnel instead of sitting idle.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="page text-page studio" aria-labelledby="studio-title">
+          <div class="container">
+            <header class="text-header">
+              <span class="t-section-num reveal em-mark" style="--stagger-i:0">08</span>
+              <span class="t-eyebrow reveal" data-en="THE AI APP FACTORY" data-pt="A FÁBRICA DE APPS DE IA" style="--stagger-i:1">THE AI APP FACTORY</span>
+              <h1 id="studio-title" class="t-h1 reveal" data-en="One app live — and the next front is Health" data-pt="Um app no ar — e a próxima frente é Saúde" style="--stagger-i:2">One app live — and the next front is Health</h1>
+              <div class="text-hairline" aria-hidden="true"></div>
+            </header>
+            <div class="text-body">
+              <p class="t-lede reveal" style="--stagger-i:3" data-en="Burburinho stays live; GeoNews holds in review by choice while capital concentrates on the paid funnel. The studio's next front is concrete: a management SaaS for health-sector entrepreneurs — Brazil-first, with Portugal as the international expansion. We apply the Claude Course lesson directly — build the base before selling. June builds the audience; sales begin in July." data-pt="O Burburinho segue no ar; o GeoNews fica em revisão por escolha enquanto o capital se concentra no funil pago. A próxima frente do estúdio é concreta: um SaaS de gestão para empreendedores do setor de Saúde — Brasil primeiro, com Portugal como expansão internacional. Aplicamos diretamente a lição do Claude Course — construir a base antes de vender. Junho constrói a audiência; as vendas começam em julho.">Burburinho stays live; GeoNews holds in review by choice while capital concentrates on the paid funnel. The studio's next front is concrete: a management SaaS for health-sector entrepreneurs — Brazil-first, with Portugal as the international expansion. We apply the Claude Course lesson directly — build the base before selling. June builds the audience; sales begin in July.</p>
+              <div class="studio-grid reveal" style="--stagger-i:4">
+                <article class="app-card">
+                  <span class="app-card-status is-live" data-en="LIVE" data-pt="NO AR">LIVE</span>
+                  <div class="app-card-name">Burburinho</div>
+                  <div class="app-card-cat" data-en="Media · Apple Store + Google Play" data-pt="Mídia · Apple Store + Google Play">Media · Apple Store + Google Play</div>
+                  <p class="app-card-note" data-en="First live app from the AI App Factory. Operational on both stores." data-pt="Primeiro app vivo da AI App Factory. Operacional nas duas lojas.">First live app from the AI App Factory. Operational on both stores.</p>
+                </article>
+                <article class="app-card">
+                  <span class="app-card-status is-queued" data-en="IN FINAL REVIEW" data-pt="EM REVISÃO FINAL">IN FINAL REVIEW</span>
+                  <div class="app-card-name">GeoNews</div>
+                  <div class="app-card-cat" data-en="Media / content" data-pt="Mídia / conteúdo">Media / content</div>
+                  <p class="app-card-note" data-en="Built and submitted. Organic launch held in backlog — no relevant May movement, by intentional focus." data-pt="Construído e submetido. Lançamento orgânico em backlog — sem movimento relevante em maio, por foco intencional.">Built and submitted. Organic launch held in backlog — no relevant May movement, by intentional focus.</p>
+                </article>
+                <article class="app-card">
+                  <span class="app-card-status is-shelved" data-en="SHELVED · ON DECK" data-pt="EM ESPERA · NA FILA">SHELVED · ON DECK</span>
+                  <div class="app-card-name">A Palavra</div>
+                  <div class="app-card-cat" data-en="Mental health · meditation · self-care" data-pt="Saúde mental · meditação · autocuidado">Mental health · meditation · self-care</div>
+                  <p class="app-card-note" data-en="Spirituality, neuroscience, music, motivation. Addressable market projected at <strong>USD 15B+ by 2029</strong>." data-pt="Espiritualidade, neurociência, música, motivação. Mercado endereçável projetado em <strong>USD 15B+ até 2029</strong>.">Spirituality, neuroscience, music, motivation. Addressable market projected at <strong>USD 15B+ by 2029</strong>.</p>
+                </article>
+                <article class="app-card">
+                  <span class="app-card-status is-dev" data-en="IN DEVELOPMENT" data-pt="EM DESENVOLVIMENTO">IN DEVELOPMENT</span>
+                  <div class="app-card-name">Sagaz</div>
+                  <div class="app-card-cat" data-en="IQ test and development" data-pt="Teste e desenvolvimento de QI">IQ test and development</div>
+                  <p class="app-card-note" data-en="Cognitive measurement and training app. In studio development." data-pt="App de medição e treinamento cognitivo. Em desenvolvimento no estúdio.">Cognitive measurement and training app. In studio development.</p>
+                </article>
+                <article class="app-card">
+                  <span class="app-card-status is-live" data-en="FOUNDATION · JUNE" data-pt="FUNDAÇÃO · JUNHO">FOUNDATION · JUNE</span>
+                  <div class="app-card-name" data-en="Health SaaS" data-pt="SaaS de Saúde">Health SaaS</div>
+                  <div class="app-card-cat" data-en="Scheduling + finance + practice management" data-pt="Agenda + finanças + gestão de consultório">Scheduling + finance + practice management</div>
+                  <p class="app-card-note" data-en="For doctors and self-employed health professionals running their own practice. Brazil-first, Portugal as international expansion. June builds the audience; <strong>sales begin July</strong>." data-pt="Para médicos e profissionais de saúde autônomos com consultório próprio. Brasil primeiro, Portugal como expansão internacional. Junho constrói a audiência; <strong>vendas começam em julho</strong>.">For doctors and self-employed health professionals running their own practice. Brazil-first, Portugal as international expansion. June builds the audience; <strong>sales begin July</strong>.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="page text-page plate-page enterprise" aria-labelledby="enterprise-title">
+          <div class="container">
+            <header class="text-header">
+              <span class="t-section-num reveal em-mark" style="--stagger-i:0">09</span>
+              <span class="t-eyebrow reveal" data-en="VINCI · ALTERPATH · ARRAY" data-pt="VINCI · ALTERPATH · ARRAY" style="--stagger-i:1">VINCI · ALTERPATH · ARRAY</span>
+              <h1 id="enterprise-title" class="t-h1 reveal" data-en="The flag is planted — now we build" data-pt="A bandeira está fincada — agora construímos" style="--stagger-i:2">The flag is planted — now we build</h1>
+              <div class="text-hairline" aria-hidden="true"></div>
+            </header>
+            <div class="plate-grid">
+              <div class="plate-text">
+                <p class="t-lede reveal" style="--stagger-i:3" data-en="Alterpath is a US SAP consultancy with an installed enterprise base and a fifteen-year relationship with Eduardo Garufi, founding partner of CapitalTrend." data-pt="A Alterpath é uma consultoria americana de SAP com base de clientes enterprise instalada e relacionamento de mais de quinze anos com Eduardo Garufi, sócio-fundador da CapitalTrend.">Alterpath is a US SAP consultancy with an installed enterprise base and a fifteen-year relationship with Eduardo Garufi, founding partner of CapitalTrend.</p>
+                <p class="reveal" style="--stagger-i:4" data-en="The April contract turned into May engineering. Vinci — an AI product for diagnostics and operations of corporate finance in the SAP ecosystem — advanced on the AR / AP / Payroll scope that opened with Array, with the build underway since April 20." data-pt="O contrato de abril virou engenharia em maio. O Vinci — produto de IA para diagnóstico e operação de finanças corporativas no ecossistema SAP — avançou no escopo AR / AP / Folha que abriu com a Array, com a construção em andamento desde 20 de abril.">The April contract turned into May engineering. Vinci — an AI product for diagnostics and operations of corporate finance in the SAP ecosystem — advanced on the AR / AP / Payroll scope that opened with Array, with the build underway since April 20.</p>
+                <p class="reveal" style="--stagger-i:5" data-en="The Alterpath contract remains the first paid contract from CapitalTrend in a US market — Alterpath pays CapitalTrend to co-build Vinci. Array, a multinational holding with operations in the United States (Arizona, Ohio), Brazil, Spain (Madrid) and broader Europe, is the first customer the engine serves, brokered through the GSD channel. The upside is structural: a single enterprise client can extend Vinci across its multiple legal entities — turning one engagement into several, without re-originating the relationship. This is the model the SAP work was always meant to prove." data-pt="O contrato com a Alterpath segue sendo o primeiro contrato pago da CapitalTrend em mercado americano — a Alterpath paga a CapitalTrend para co-construir o Vinci. A Array, holding multinacional com operações nos EUA (Arizona, Ohio), Brasil, Espanha (Madri) e Europa, é o primeiro cliente que o motor atende, intermediada pelo canal GSD. O upside é estrutural: um único cliente enterprise pode estender o Vinci por suas várias entidades legais — transformando um contrato em vários, sem reoriginar o relacionamento. É o modelo que o trabalho em SAP sempre se propôs a provar.">The Alterpath contract remains the first paid contract from CapitalTrend in a US market — Alterpath pays CapitalTrend to co-build Vinci. Array, a multinational holding with operations in the United States (Arizona, Ohio), Brazil, Spain (Madrid) and broader Europe, is the first customer the engine serves, brokered through the GSD channel. The upside is structural: a single enterprise client can extend Vinci across its multiple legal entities — turning one engagement into several, without re-originating the relationship. This is the model the SAP work was always meant to prove.</p>
+                <p class="reveal" style="--stagger-i:6" data-en="The flag is planted. May was about making the engine behind it real." data-pt="A bandeira está fincada. Maio foi sobre tornar real o motor por trás dela.">The flag is planted. May was about making the engine behind it real.</p>
+              </div>
+              <div class="plate reveal" style="--stagger-i:7">
+                <span class="plate-eyebrow" data-en="DEAL STRUCTURE" data-pt="ESTRUTURA DO ACORDO">DEAL STRUCTURE</span>
+                <div class="plate-title">Vinci · Array</div>
+                <span class="plate-rule"></span>
+                <div class="partnership-stack">
+                  <div class="partnership-row">
+                    <span class="partnership-name">Alterpath</span>
+                    <span class="partnership-role" data-en="Paid co-development of Vinci · deep SAP financial domain (BKPF, BSEG, processes), installed base, diagnostic methodology" data-pt="Co-desenvolvimento pago do Vinci · domínio profundo de SAP financeiro (BKPF, BSEG, processos), base instalada, metodologia de diagnóstico">Paid co-development of Vinci · deep SAP financial domain (BKPF, BSEG, processes), installed base, diagnostic methodology</span>
+                  </div>
+                  <div class="partnership-row">
+                    <span class="partnership-name">CapitalTrend</span>
+                    <span class="partnership-role" data-en="AI engine, product velocity, applied engineering" data-pt="Motor de IA, velocidade de produto, engenharia de aplicação">AI engine, product velocity, applied engineering</span>
+                  </div>
+                  <div class="partnership-row">
+                    <span class="partnership-name">GSD</span>
+                    <span class="partnership-role" data-en="Channel that originated the Array opportunity · 10–15% recurring commission" data-pt="Canal que originou a oportunidade Array · comissão recorrente 10–15%">Channel that originated the Array opportunity · 10–15% recurring commission</span>
+                  </div>
+                  <div class="partnership-row">
+                    <span class="partnership-name is-customer">Array</span>
+                    <span class="partnership-role" data-en="First US enterprise customer · scope: AR, AP, Payroll · Vinci build advancing since Apr 20 · multi-entity upside" data-pt="Primeiro cliente enterprise nos EUA · escopo: AR, AP, Folha · construção do Vinci avançando desde 20/abr · upside multi-entidade">First US enterprise customer · scope: AR, AP, Payroll · Vinci build advancing since Apr 20 · multi-entity upside</span>
+                  </div>
+                </div>
+                <div style="margin-top:8px;font-family:var(--font-mono);font-size:10px;color:var(--ink-soft);letter-spacing:0.1em;text-transform:uppercase;" data-en="GEOGRAPHY · US · BRAZIL · SPAIN · BROADER EUROPE" data-pt="GEOGRAFIA · EUA · BRASIL · ESPANHA · EUROPA">GEOGRAPHY · US · BRAZIL · SPAIN · BROADER EUROPE</div>
+              </div>
+            </div>
+          </div>
+        </section>
+    <section class="page sequencing" aria-labelledby="seq-title">
+      <div class="container">
+        <header class="seq-header">
+          <span class="seq-num t-section-num reveal em-mark" style="--stagger-i:0">10</span>
+          <span class="seq-eyebrow t-eyebrow reveal" data-en="SEQUENCING" data-pt="SEQUENCIAMENTO" style="--stagger-i:1">SEQUENCING</span>
+          <h1 id="seq-title" class="seq-title t-h1 reveal" data-en="What we deferred and why" data-pt="O que adiamos e por quê" style="--stagger-i:2">What we deferred and why</h1>
+          <div class="seq-hairline" aria-hidden="true"></div>
+          <p class="seq-lede t-lede reveal" data-en="To sequence is to decide, on a clock, in what order each bet receives people and cash. In May we cut one bet outright, held two on the clock, and carried April's deferrals forward — each still on a dated trigger." data-pt="Sequenciar é decidir, datadamente, em que ordem cada aposta recebe gente e caixa. Em maio cortamos uma aposta de vez, mantivemos duas sob o relógio e levamos adiante os adiamentos de abril — cada um ainda com um gatilho datado." style="--stagger-i:3">To sequence is to decide, on a clock, in what order each bet receives people and cash. In May we cut one bet outright, held two on the clock, and carried April's deferrals forward — each still on a dated trigger.</p>
+        </header>
+
+        <div class="seq-blocks">
+        <article class="seq-block">
+          <header class="seq-block-head reveal" style="--stagger-i:0">
+            <span class="seq-block-num em-mark">10.1</span>
+            <span class="seq-block-glyph" aria-hidden="true">◐</span>
+            <span class="seq-block-title" data-en="CLAUDE COURSE · US ENTRY" data-pt="CLAUDE COURSE · ENTRADA NOS EUA">CLAUDE COURSE · US ENTRY</span>
+            <span class="seq-block-title-sub" data-en="· tested and cut" data-pt="· testado e cortado">· tested and cut</span>
+          </header>
+          <p class="seq-block-body t-body reveal" style="--stagger-i:1" data-en="We tested entry into the US market with direct sales of the Claude Course ticket on LinkedIn and Meta. US$ 3,700 in, zero sales — and we shut the funnel down. This was a clear hypothesis with a defined stop criterion, not a blind attempt: a controlled US$ 3,700 ceiling against the US$ 12,311 deployed on the Traidon launches in Brazil. The learning is already incorporated — 'build the base before selling' is now a prerequisite for any new-market entry, starting with the Health niche." data-pt="Testamos a entrada no mercado dos EUA com venda direta do ticket do Claude Course no LinkedIn e na Meta. US$ 3.700 investidos, zero vendas — e desligamos o funil. Foi uma hipótese clara com critério de parada definido, não uma tentativa cega: um teto controlado de US$ 3.700 contra os US$ 12.311 aplicados nos lançamentos do Traidon no Brasil. O aprendizado já está incorporado — 'construir a base antes de vender' agora é pré-requisito para qualquer entrada em novo mercado, começando pelo nicho de Saúde.">We tested entry into the US market with direct sales of the Claude Course ticket on LinkedIn and Meta. US$ 3,700 in, zero sales — and we shut the funnel down. This was a clear hypothesis with a defined stop criterion, not a blind attempt: a controlled US$ 3,700 ceiling against the US$ 12,311 deployed on the Traidon launches in Brazil. The learning is already incorporated — 'build the base before selling' is now a prerequisite for any new-market entry, starting with the Health niche.</p>
+          <p class="seq-trigger reveal" style="--stagger-i:2">
+            <strong data-en="Re-engagement trigger:" data-pt="Gatilho de retomada:">Re-engagement trigger:</strong>
+            <span data-en="a base built first — we re-enter a new market only after audience and pain are validated." data-pt="uma base construída primeiro — só reentramos em um novo mercado após validar audiência e dor."> a base built first — we re-enter a new market only after audience and pain are validated.</span>
+          </p>
+        </article>
+
+        <article class="seq-block">
+          <header class="seq-block-head reveal" style="--stagger-i:0">
+            <span class="seq-block-num em-mark">10.2</span>
+            <span class="seq-block-glyph" aria-hidden="true">◐</span>
+            <span class="seq-block-title" data-en="2K · USER ACQUISITION TOOL" data-pt="2K · FERRAMENTA DE AQUISIÇÃO">2K · USER ACQUISITION TOOL</span>
+            <span class="seq-block-title-sub" data-en="· backlog, no defined timeline" data-pt="· backlog, sem prazo definido">· backlog, no defined timeline</span>
+          </header>
+          <p class="seq-block-body t-body reveal" style="--stagger-i:1" data-en="The 2K still captures well, but the structural issues identified earlier — the download-to-revenue bottleneck and elevated maintenance cost — are unchanged. With May's capital concentrated on the Traidon launches, the 2K received no structural investment and has no defined timeline. The planned repair waits on Traidon cash and the front-CPA learnings now in hand. The tool stays live and capturing; it simply is not first in line." data-pt="O 2K ainda capta bem, mas os problemas estruturais já identificados — o gargalo de download para receita e o custo de manutenção elevado — seguem inalterados. Com o capital de maio concentrado nos lançamentos do Traidon, o 2K não recebeu investimento estrutural e não tem prazo definido. A correção planejada aguarda o caixa do Traidon e os aprendizados de CPA de front já em mãos. A ferramenta segue no ar e captando; apenas não é a primeira da fila.">The 2K still captures well, but the structural issues identified earlier — the download-to-revenue bottleneck and elevated maintenance cost — are unchanged. With May's capital concentrated on the Traidon launches, the 2K received no structural investment and has no defined timeline. The planned repair waits on Traidon cash and the front-CPA learnings now in hand. The tool stays live and capturing; it simply is not first in line.</p>
+          <p class="seq-trigger reveal" style="--stagger-i:2">
+            <strong data-en="Re-engagement trigger:" data-pt="Gatilho de retomada:">Re-engagement trigger:</strong>
+            <span data-en="Traidon cash stabilized + the front-CPA fix proven on the live funnel." data-pt="caixa do Traidon estabilizado + correção do CPA de front comprovada no funil ao vivo."> Traidon cash stabilized + the front-CPA fix proven on the live funnel.</span>
+          </p>
+        </article>
+
+        <article class="seq-block">
+          <header class="seq-block-head reveal" style="--stagger-i:0">
+            <span class="seq-block-num em-mark">10.3</span>
+            <span class="seq-block-glyph" aria-hidden="true">◐</span>
+            <span class="seq-block-title" data-en="GLOBAL DIRECT SALES" data-pt="VENDAS GLOBAIS DIRETAS">GLOBAL DIRECT SALES</span>
+            <span class="seq-block-title-sub" data-en="· rescheduled in the calendar" data-pt="· reagendadas no calendário">· rescheduled in the calendar</span>
+          </header>
+          <p class="seq-block-body t-body reveal" style="--stagger-i:1" data-en="The first read on price, ticket and customer profile outside Brazil was rescheduled. The reasoning is sequencing: the same paid-media muscle returns more, sooner, by first duplicating the proven Traidon funnel onto João Homem's network — a second domestic distribution channel — and is carried abroad once that network performs. The US Claude Course test (10.1) is itself a global-sales lesson already banked." data-pt="A primeira leitura de preço, ticket e perfil de cliente fora do Brasil foi reagendada. A lógica é de sequenciamento: o mesmo músculo de mídia paga rende mais, e mais cedo, duplicando primeiro o funil validado do Traidon na rede do João Homem — um segundo canal de distribuição doméstico — e é levado ao exterior quando essa rede performar. O teste do Claude Course nos EUA (10.1) é, em si, uma lição de venda global já capitalizada.">The first read on price, ticket and customer profile outside Brazil was rescheduled. The reasoning is sequencing: the same paid-media muscle returns more, sooner, by first duplicating the proven Traidon funnel onto João Homem's network — a second domestic distribution channel — and is carried abroad once that network performs. The US Claude Course test (10.1) is itself a global-sales lesson already banked.</p>
+          <p class="seq-trigger reveal" style="--stagger-i:2">
+            <strong data-en="Re-engagement trigger:" data-pt="Gatilho de retomada:">Re-engagement trigger:</strong>
+            <span data-en="João Homem's network funnel live and performing." data-pt="funil da rede do João Homem ativo e performando."> João Homem's network funnel live and performing.</span>
+          </p>
+        </article>
+
+        <article class="seq-block">
+          <header class="seq-block-head reveal" style="--stagger-i:0">
+            <span class="seq-block-num em-mark">10.4</span>
+            <span class="seq-block-glyph" aria-hidden="true">◐</span>
+            <span class="seq-block-title" data-en="AUGUR · NELOGICA · IB DEALS" data-pt="AUGUR · NELOGICA · IB DEALS">AUGUR · NELOGICA · IB DEALS</span>
+            <span class="seq-block-title-sub" data-en="· carried over, triggers unchanged" data-pt="· mantidos, gatilhos inalterados">· carried over, triggers unchanged</span>
+          </header>
+          <p class="seq-block-body t-body reveal" style="--stagger-i:1" data-en="Three April deferrals had no new movement in May — by focus, not neglect. Augur / prediction markets: the Nexus Engine is built and still waits on regulatory clarity or an international monetization window. Nelogica: the contract is still in their legal team's queue — friction is legal, not commercial. IB Deals: Tickmill and VCG stay active and yielding daily alongside M4, Juno and Kucoin; the remaining brokers stay queued behind a clean 2K funnel." data-pt="Três adiamentos de abril não tiveram movimento novo em maio — por foco, não por negligência. Augur / prediction markets: o Nexus Engine está construído e ainda aguarda clareza regulatória ou janela de monetização internacional. Nelogica: o contrato segue na fila do jurídico deles — a fricção é legal, não comercial. IB Deals: Tickmill e VCG seguem ativos e rendendo diariamente, ao lado de M4, Juno e Kucoin; as demais corretoras seguem na fila, atrás de um funil 2K liso.">Three April deferrals had no new movement in May — by focus, not neglect. Augur / prediction markets: the Nexus Engine is built and still waits on regulatory clarity or an international monetization window. Nelogica: the contract is still in their legal team's queue — friction is legal, not commercial. IB Deals: Tickmill and VCG stay active and yielding daily alongside M4, Juno and Kucoin; the remaining brokers stay queued behind a clean 2K funnel.</p>
+          <p class="seq-trigger reveal" style="--stagger-i:2">
+            <strong data-en="Re-engagement trigger:" data-pt="Gatilho de retomada:">Re-engagement trigger:</strong>
+            <span data-en="as stated in April — each front keeps its original dated trigger." data-pt="como declarado em abril — cada frente mantém seu gatilho datado original."> as stated in April — each front keeps its original dated trigger.</span>
+          </p>
+        </article>
+        </div>
+      </div>
+    </section>
+
+        <section class="page text-page internal-engine" aria-labelledby="engine-title">
+          <div class="container">
+            <header class="text-header">
+              <span class="t-section-num reveal em-mark" style="--stagger-i:0">11</span>
+              <span class="t-eyebrow reveal" data-en="INTERNAL ENGINE" data-pt="MOTOR INTERNO" style="--stagger-i:1">INTERNAL ENGINE</span>
+              <h1 id="engine-title" class="t-h1 reveal" data-en="Six brands on the AI loop" data-pt="Seis marcas no loop de IA" style="--stagger-i:2">Six brands on the AI loop</h1>
+              <div class="text-hairline" aria-hidden="true"></div>
+            </header>
+            <div class="text-body">
+              <p class="t-lede reveal" style="--stagger-i:3" data-en="The content automation built into the group held through May's three launches without adding headcount. Institutional, product, and media brands run with ninety percent of their content generated by AI; the founders' personal brands hold at forty percent, with human curation preserving voice and judgment." data-pt="A automação de conteúdo do grupo se sustentou ao longo dos três lançamentos de maio sem adicionar headcount. As marcas institucionais, de produto e de mídia operam com noventa por cento do conteúdo gerado por IA; as marcas pessoais dos sócios mantêm-se em quarenta por cento, com curadoria humana preservando voz e julgamento.">The content automation built into the group held through May's three launches without adding headcount. Institutional, product, and media brands run with ninety percent of their content generated by AI; the founders' personal brands hold at forty percent, with human curation preserving voice and judgment.</p>
+              <p class="reveal" style="--stagger-i:4" data-en="Beyond content, we trained internal AI capabilities in three revenue-adjacent functions: copywriting (paid and organic), design (creatives and variations), and strategy (funnels, pricing, paid media). The financial consequence is direct: the operation can grow without payroll growing in lockstep. AI in the loop is the discipline lever — capacity that compounds, so the sequencing documented in the rest of this report becomes affordable." data-pt="Além de conteúdo, treinamos capacidades internas de IA em três funções que afetam receita diretamente: copywriting (pago e orgânico), design (criativos e variações), e estratégia (funis, precificação, mídia paga). A consequência financeira é direta: a operação consegue crescer sem que a folha cresça na mesma proporção. IA no loop é a alavanca de disciplina — capacidade que compõe, e é assim que o sequenciamento documentado no restante deste relatório se torna viável.">Beyond content, we trained internal AI capabilities in three revenue-adjacent functions: copywriting (paid and organic), design (creatives and variations), and strategy (funnels, pricing, paid media). The financial consequence is direct: the operation can grow without payroll growing in lockstep. AI in the loop is the discipline lever — capacity that compounds, so the sequencing documented in the rest of this report becomes affordable.</p>
+              <div class="brands-bars reveal" style="--stagger-i:5">
+                <div class="brands-bar-row" data-pct="90">
+                  <span class="brands-bar-name">Burburinho</span>
+                  <span class="brands-bar-track"><span class="brands-bar-fill"></span></span>
+                  <span class="brands-bar-pct">90%</span>
+                </div>
+                <div class="brands-bar-row" data-pct="90">
+                  <span class="brands-bar-name">GeoNews</span>
+                  <span class="brands-bar-track"><span class="brands-bar-fill"></span></span>
+                  <span class="brands-bar-pct">90%</span>
+                </div>
+                <div class="brands-bar-row" data-pct="90">
+                  <span class="brands-bar-name">CapitalTrend</span>
+                  <span class="brands-bar-track"><span class="brands-bar-fill"></span></span>
+                  <span class="brands-bar-pct">90%</span>
+                </div>
+                <div class="brands-bar-row" data-pct="90">
+                  <span class="brands-bar-name">StoneLake Trading</span>
+                  <span class="brands-bar-track"><span class="brands-bar-fill"></span></span>
+                  <span class="brands-bar-pct">90%</span>
+                </div>
+                <div class="brands-bar-row" data-pct="40">
+                  <span class="brands-bar-name" data-en="João Homem · partner" data-pt="João Homem · sócio">João Homem · partner</span>
+                  <span class="brands-bar-track"><span class="brands-bar-fill"></span></span>
+                  <span class="brands-bar-pct">40%</span>
+                </div>
+                <div class="brands-bar-row" data-pct="40">
+                  <span class="brands-bar-name" data-en="Eduardo Garufi · partner" data-pt="Eduardo Garufi · sócio">Eduardo Garufi · partner</span>
+                  <span class="brands-bar-track"><span class="brands-bar-fill"></span></span>
+                  <span class="brands-bar-pct">40%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page text-page may-catalysts" aria-labelledby="catalysts-title">
+          <div class="container">
+            <header class="text-header">
+              <span class="t-section-num reveal em-mark" style="--stagger-i:0">12</span>
+              <span class="t-eyebrow reveal" data-en="JUNE CATALYSTS" data-pt="CATALISADORES DE JUNHO" style="--stagger-i:1">JUNE CATALYSTS</span>
+              <h1 id="catalysts-title" class="t-h1 reveal" data-en="Sequenced moves" data-pt="Movimentos sequenciados" style="--stagger-i:2">Sequenced moves</h1>
+              <div class="text-hairline" aria-hidden="true"></div>
+            </header>
+            <div class="text-body">
+              <p class="t-lede reveal" style="--stagger-i:3" data-en="June is allocation with a clear rule: aggressively scale what already pays — Traidon, now across two networks — while opening one new front for future revenue without touching the funnel that converts." data-pt="Junho é alocação com uma regra clara: escalar de forma agressiva o que já paga — o Traidon, agora em duas redes — enquanto abrimos uma nova frente para a receita futura sem tocar no funil que já converte.">June is allocation with a clear rule: aggressively scale what already pays — Traidon, now across two networks — while opening one new front for future revenue without touching the funnel that converts.</p>
+              <div class="timeline reveal" style="--stagger-i:4">
+                <div class="timeline-item is-anchor">
+                  <div class="timeline-date" data-en="June" data-pt="Junho">June</div>
+                  <div class="timeline-title" data-en="Traidon scaled on two networks" data-pt="Traidon escalado em duas redes">Traidon scaled on two networks</div>
+                  <div class="timeline-desc" data-en="Optimize the funnel on Eduardo Garufi's network (190k) — new creative battery, more front-end order bumps — and duplicate the same paid-event + Traidon model on João Homem's network (190k), a second distributor. Scale thesis: an additional 80–100% on top of May, without reinventing the funnel." data-pt="Otimizar o funil na rede do Eduardo Garufi (190k) — nova bateria de criativos, mais order bumps no front — e duplicar o mesmo modelo de evento pago + Traidon na rede do João Homem (190k), um segundo distribuidor. Tese de escala: 80–100% adicionais sobre maio, sem reinventar o funil.">Optimize the funnel on Eduardo Garufi's network (190k) — new creative battery, more front-end order bumps — and duplicate the same paid-event + Traidon model on João Homem's network (190k), a second distributor. Scale thesis: an additional 80–100% on top of May, without reinventing the funnel.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date" data-en="June" data-pt="Junho">June</div>
+                  <div class="timeline-title" data-en="Attack the front CPA" data-pt="Atacar o CPA de front">Attack the front CPA</div>
+                  <div class="timeline-desc" data-en="The metric that explains May's ROAS slide. A new creative battery and active lead qualification for cold audiences; the ad-account structure reinforced after the Meta block, with a warmed second account ready for volume. Target: front CPA down, ROAS up." data-pt="A métrica que explica a queda do ROAS em maio. Nova bateria de criativos e qualificação ativa de leads para audiências frias; estrutura de contas reforçada após o bloqueio da Meta, com uma segunda conta aquecida e pronta para volume. Meta: CPA de front para baixo, ROAS para cima.">The metric that explains May's ROAS slide. A new creative battery and active lead qualification for cold audiences; the ad-account structure reinforced after the Meta block, with a warmed second account ready for volume. Target: front CPA down, ROAS up.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date" data-en="June" data-pt="Junho">June</div>
+                  <div class="timeline-title" data-en="Open the Health niche — foundation" data-pt="Abrir o nicho de Saúde — fundação">Open the Health niche — foundation</div>
+                  <div class="timeline-desc" data-en="Begin building the base for health-sector entrepreneurs — doctors and self-employed professionals running their own practice. Content on the niche's real pains, low-ticket quick-win products, online + in-person distribution. Brazil-first, Portugal as international expansion. A foundation month, not a sales month." data-pt="Começar a construir a base para empreendedores do setor de Saúde — médicos e profissionais autônomos com consultório próprio. Conteúdo sobre as dores reais do nicho, produtos de baixo ticket que resolvem dores rápidas, distribuição online + presencial. Brasil primeiro, Portugal como expansão internacional. Um mês de fundação, não de vendas.">Begin building the base for health-sector entrepreneurs — doctors and self-employed professionals running their own practice. Content on the niche's real pains, low-ticket quick-win products, online + in-person distribution. Brazil-first, Portugal as international expansion. A foundation month, not a sales month.</div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-date" data-en="July" data-pt="Julho">July</div>
+                  <div class="timeline-title" data-en="Health SaaS sales + global tests resume" data-pt="Vendas do Health SaaS + testes globais retomam">Health SaaS sales + global tests resume</div>
+                  <div class="timeline-desc" data-en="The management SaaS (scheduling + finance + practice management) opens for sale on the pre-built base — base first, offer second. Global direct sales resume once João Homem's network funnel performs." data-pt="O SaaS de gestão (agenda + finanças + gestão de consultório) abre para venda sobre a base já construída — base primeiro, oferta depois. As vendas globais diretas retomam quando o funil da rede do João Homem performar.">The management SaaS (scheduling + finance + practice management) opens for sale on the pre-built base — base first, offer second. Global direct sales resume once João Homem's network funnel performs.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page text-page calendar" aria-labelledby="calendar-title">
+          <div class="container">
+            <header class="text-header">
+              <span class="t-section-num reveal em-mark" style="--stagger-i:0">13</span>
+              <span class="t-eyebrow reveal" data-en="JULY AND BEYOND" data-pt="JULHO E ALÉM" style="--stagger-i:1">JULY AND BEYOND</span>
+              <h1 id="calendar-title" class="t-h1 reveal" data-en="The Compounding Calendar" data-pt="O calendário composto" style="--stagger-i:2">The Compounding Calendar</h1>
+              <div class="text-hairline" aria-hidden="true"></div>
+            </header>
+            <div class="text-body">
+              <p class="t-lede reveal" style="--stagger-i:3" data-en="July and the quarter beyond depend on three readings from June." data-pt="Julho e o trimestre seguinte dependem de três leituras de junho.">July and the quarter beyond depend on three readings from June.</p>
+              <p class="reveal" style="--stagger-i:4" data-en="(a) whether João Homem's network replicates Eduardo's funnel performance; (b) the new front CPA after the creative and account-structure fixes; (c) audience and pain validation in the Health niche." data-pt="(a) se a rede do João Homem replica a performance do funil do Eduardo; (b) o novo CPA de front após os ajustes de criativo e estrutura de contas; (c) a validação de audiência e dor no nicho de Saúde.">(a) whether João Homem's network replicates Eduardo's funnel performance; (b) the new front CPA after the creative and account-structure fixes; (c) audience and pain validation in the Health niche.</p>
+              <p class="reveal" style="--stagger-i:5" data-en="We work with probable fronts from July onward. Recurring Traidon revenue compounding across two domestic networks, with Bitget distribution running alongside. Continued IB yield across M4, Juno, Kucoin, Tickmill and VCG." data-pt="Trabalhamos com frentes prováveis de julho em diante. Receita recorrente do Traidon compondo em duas redes domésticas, com a distribuição Bitget rodando em paralelo. Rendimento contínuo de IB em M4, Juno, Kucoin, Tickmill e VCG.">We work with probable fronts from July onward. Recurring Traidon revenue compounding across two domestic networks, with Bitget distribution running alongside. Continued IB yield across M4, Juno, Kucoin, Tickmill and VCG.</p>
+              <p class="reveal" style="--stagger-i:6" data-en="The Health SaaS opening for sale in July on a base built the right way — base first, offer second. The Vinci / Array build maturing toward the multi-entity expansion that turns one enterprise client into several." data-pt="O Health SaaS abrindo para venda em julho sobre uma base construída do jeito certo — base primeiro, oferta depois. A construção do Vinci / Array amadurecendo rumo à expansão multi-entidade que transforma um cliente enterprise em vários.">The Health SaaS opening for sale in July on a base built the right way — base first, offer second. The Vinci / Array build maturing toward the multi-entity expansion that turns one enterprise client into several.</p>
+              <p class="reveal" style="--stagger-i:7" data-en="Controlled return of 2K once Traidon cash and the front-CPA fix are validated. The fix is technical — conversion plus cost — and the scope is already mapped." data-pt="Retorno controlado do 2K assim que o caixa do Traidon e a correção do CPA de front estiverem validados. A correção é técnica — conversão mais custo — e o escopo já está mapeado.">Controlled return of 2K once Traidon cash and the front-CPA fix are validated. The fix is technical — conversion plus cost — and the scope is already mapped.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="page closing" aria-labelledby="closing-title">
+          <div class="container">
+            <header class="text-header" style="margin-bottom: 24px;">
+              <span class="t-section-num reveal em-mark" style="--stagger-i:0">14</span>
+              <span class="t-eyebrow reveal" data-en="A NOTE ON DISCIPLINE" data-pt="UMA NOTA SOBRE DISCIPLINA" style="--stagger-i:1">A NOTE ON DISCIPLINE</span>
+            </header>
+            <p id="closing-title" class="closing-quote reveal" style="--stagger-i:2" data-en="The question is no longer only <em>“what can we scale?”</em> It is <em>“where exactly does it stop scaling — and what do we fix to move that line?”</em> May was the month we found the line on purpose: built to scale on what works, disciplined to stop what does not." data-pt="A pergunta não é mais só <em>“o que podemos escalar?”</em>. É <em>“onde exatamente isso para de escalar — e o que corrigimos para mover essa linha?”</em> Maio foi o mês em que encontramos a linha de propósito: feitos para escalar no que funciona, disciplinados para parar o que não funciona.">The question is no longer only <em>“what can we scale?”</em> It is <em>“where exactly does it stop scaling — and what do we fix to move that line?”</em> May was the month we found the line on purpose: built to scale on what works, disciplined to stop what does not.</p>
+            <div class="closing-colophon reveal" style="--stagger-i:3">
+              <div data-en="CapitalTrend Group LLC · Dubai · Meydan Free Zone · May 2026" data-pt="CapitalTrend Group LLC · Dubai · Meydan Free Zone · Maio 2026">CapitalTrend Group LLC · Dubai · Meydan Free Zone · May 2026</div>
+              <div data-en="Monthly Report · Issue 03 — successor to Discipline Compounds (April 2026)" data-pt="Relatório Mensal · Edição 03 — sucessor de Discipline Compounds (Abril 2026)">Monthly Report · Issue 03 — successor to <span class="closing-colophon-em">Discipline Compounds</span> (April 2026)</div>
+            </div>
+          </div>
+        </section>
+  </div>
+</main>
+
+<nav class="page-nav" aria-label="Page navigation">
+  <button class="page-nav-btn" id="pagePrev" aria-label="Previous page" type="button">←</button>
+  <span class="page-counter" id="pageCounter">1 / 2</span>
+  <button class="page-nav-btn" id="pageNext" aria-label="Next page" type="button">→</button>
+</nav>
+
+<script>
+// Book-style paginated navigation + lang toggle + page-enter reveals + count-up
+
+(function () {
+  'use strict';
+
+  // ═════════════════════════════════════════════════════
+  // Language toggle (preserved from Task 3, no scroll-based behavior anymore)
+  // ═════════════════════════════════════════════════════
+  const STORAGE_KEY = 'ctg-report-lang';
+  const SUPPORTED = ['en', 'pt'];
+  const TITLE_EN = 'CapitalTrend · Monthly Report · April 2026';
+  const TITLE_PT = 'CapitalTrend · Relatório Mensal · Abril 2026';
+
+  const main = document.querySelector('.report-main');
+  const toggle = document.getElementById('langToggle');
+  const langOpts = toggle.querySelectorAll('.lang-opt');
+
+  function getStoredLang() {
+    try {
+      const v = localStorage.getItem(STORAGE_KEY);
+      return SUPPORTED.includes(v) ? v : 'en';
+    } catch (e) { return 'en'; }
+  }
+  function setStoredLang(lang) {
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+  }
+
+  function applyLang(lang, animate) {
+    document.documentElement.lang = lang;
+    document.title = lang === 'pt' ? TITLE_PT : TITLE_EN;
+
+    const apply = () => {
+      document.querySelectorAll('[data-en][data-pt]').forEach(el => {
+        const next = el.getAttribute('data-' + lang);
+        if (next == null) return;
+        // Closing quote uses <em> tags inline — use innerHTML for safe hardcoded content
+        if (el.classList.contains('closing-quote') || el.classList.contains('app-card-note') || el.classList.contains('partnership-role')) {
+          el.innerHTML = next;
+        } else {
+          el.textContent = next;
+        }
+      });
+      langOpts.forEach(opt => {
+        opt.classList.toggle('active', opt.dataset.langSet === lang);
+      });
+      toggle.setAttribute('aria-label',
+        lang === 'en'
+          ? 'Language: English. Switch to Portuguese.'
+          : 'Idioma: Português. Mudar para Inglês.');
+      document.dispatchEvent(new CustomEvent('langapplied', { detail: { lang } }));
+    };
+
+    if (animate && main) {
+      main.style.transition = 'opacity 100ms ease';
+      main.style.opacity = '0';
+      setTimeout(() => {
+        apply();
+        requestAnimationFrame(() => {
+          main.style.opacity = '1';
+          setTimeout(() => { main.style.transition = ''; main.style.opacity = ''; }, 200);
+        });
+      }, 100);
+    } else {
+      apply();
+    }
+  }
+
+  applyLang(getStoredLang(), false);
+
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.lang;
+    const next = current === 'en' ? 'pt' : 'en';
+    setStoredLang(next);
+    applyLang(next, true);
+  });
+})();
+
+(function () {
+  'use strict';
+
+  // ═════════════════════════════════════════════════════
+  // Book-style paginated navigation
+  // ═════════════════════════════════════════════════════
+  const main = document.querySelector('.report-main');
+  const track = document.getElementById('pagesTrack');
+  const pages = Array.from(track.querySelectorAll('.page'));
+  const spine = document.getElementById('spine');
+  const prevBtn = document.getElementById('pagePrev');
+  const nextBtn = document.getElementById('pageNext');
+  const counter = document.getElementById('pageCounter');
+  const header = document.getElementById('reportHeader');
+  const numPages = pages.length;
+
+  let currentPage = 0;
+  const visited = new Set([0]);
+
+  // Total planned pages in the report (Phase 1 + Phase 2 sections combined).
+  // Spine renders all planned slots from the start so the "book lombada" reads
+  // top-to-bottom even before later sections are implemented. Slots beyond the
+  // current page count are visible-but-disabled placeholders.
+  const TOTAL_PAGES = 15;
+
+  // Build spine — one slot for every planned page. Real pages get click handlers;
+  // placeholder slots stay disabled and faint.
+  for (let i = 0; i < TOTAL_PAGES; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'spine-line';
+    btn.type = 'button';
+    btn.dataset.page = String(i);
+    if (i < numPages) {
+      btn.setAttribute('aria-label', `Go to page ${i + 1} of ${TOTAL_PAGES}`);
+      btn.addEventListener('click', () => goToPage(i, 'spine'));
+    } else {
+      btn.classList.add('is-placeholder');
+      btn.disabled = true;
+      btn.setAttribute('aria-label', `Page ${i + 1} of ${TOTAL_PAGES} (not yet available)`);
+    }
+    spine.appendChild(btn);
+  }
+  const spineLines = Array.from(spine.querySelectorAll('.spine-line'));
+
+  function updateUI() {
+    track.style.transform = `translateX(-${currentPage * 100}%)`;
+    spineLines.forEach((line, i) => {
+      line.classList.toggle('is-active', i === currentPage);
+      line.classList.toggle('is-visited', visited.has(i) && i !== currentPage);
+    });
+    pages.forEach((p, i) => p.classList.toggle('is-current', i === currentPage));
+    if (counter) counter.textContent = `${currentPage + 1} / ${numPages}`;
+    if (prevBtn) prevBtn.disabled = currentPage === 0;
+    if (nextBtn) nextBtn.disabled = currentPage === numPages - 1;
+    header.classList.toggle('is-active', currentPage > 0);
+    // Reset scroll inside the active page
+    pages[currentPage].scrollTop = 0;
+  }
+
+  function goToPage(idx, source) {
+    idx = Math.max(0, Math.min(numPages - 1, idx));
+    if (idx === currentPage) return;
+    const prev = currentPage;
+    currentPage = idx;
+    visited.add(idx);
+    updateUI();
+    // Dispatch page-enter event for reveal/count-up listeners
+    document.dispatchEvent(new CustomEvent('pageentered', {
+      detail: { page: idx, prev, element: pages[idx], source: source || 'unknown' }
+    }));
+  }
+
+  // Init: mark page 0 visited and trigger pageentered for initial page
+  updateUI();
+  // Defer initial pageentered to next frame so listeners attached below catch it
+  requestAnimationFrame(() => {
+    document.dispatchEvent(new CustomEvent('pageentered', {
+      detail: { page: 0, prev: -1, element: pages[0], source: 'init' }
+    }));
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+      e.preventDefault();
+      goToPage(currentPage + 1, 'keyboard');
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      goToPage(currentPage - 1, 'keyboard');
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      goToPage(0, 'keyboard');
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      goToPage(numPages - 1, 'keyboard');
+    }
+  });
+
+  // Click prev/next
+  if (prevBtn) prevBtn.addEventListener('click', () => goToPage(currentPage - 1, 'click'));
+  if (nextBtn) nextBtn.addEventListener('click', () => goToPage(currentPage + 1, 'click'));
+
+  // Touch swipe — pointer-based, threshold 60px
+  let pointerStart = null;
+  main.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse') return;
+    pointerStart = { x: e.clientX, y: e.clientY, time: performance.now() };
+  });
+  main.addEventListener('pointerup', (e) => {
+    if (!pointerStart || e.pointerType === 'mouse') { pointerStart = null; return; }
+    const dx = e.clientX - pointerStart.x;
+    const dy = e.clientY - pointerStart.y;
+    const dt = performance.now() - pointerStart.time;
+    pointerStart = null;
+    if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) || dt > 600) return;
+    if (dx < 0) goToPage(currentPage + 1, 'swipe');
+    else goToPage(currentPage - 1, 'swipe');
+  });
+  main.addEventListener('pointercancel', () => { pointerStart = null; });
+})();
+
+(function () {
+  'use strict';
+
+  // ═════════════════════════════════════════════════════
+  // Reveal on page-enter (replaces IO scroll-based reveal)
+  // ═════════════════════════════════════════════════════
+  function revealPage(pageEl) {
+    pageEl.querySelectorAll('.reveal').forEach(el => el.classList.add('is-in'));
+    pageEl.querySelectorAll('.cover-hairline, .seq-hairline, .text-hairline').forEach(el => el.classList.add('is-in'));
+    // Animate bar fills (§11 internal engine)
+    pageEl.querySelectorAll('.brands-bar-row[data-pct]').forEach(row => {
+      const pct = parseInt(row.dataset.pct, 10) || 0;
+      row.style.setProperty('--w', pct + '%');
+      row.classList.add('is-in');
+    });
+  }
+
+  document.addEventListener('pageentered', (e) => {
+    revealPage(e.detail.element);
+  });
+})();
+
+(function () {
+  'use strict';
+
+  // ═════════════════════════════════════════════════════
+  // KPI count-up on page-enter
+  // ═════════════════════════════════════════════════════
+  function formatNumber(value, decimals) {
+    const lang = document.documentElement.lang === 'pt' ? 'pt-BR' : 'en-US';
+    if (decimals > 0) {
+      return new Intl.NumberFormat(lang, {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      }).format(value);
+    }
+    return new Intl.NumberFormat(lang).format(Math.round(value));
+  }
+
+  function animateCount(el) {
+    const target = parseFloat(el.dataset.countTo);
+    if (isNaN(target)) return;
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 350;
+    const start = performance.now();
+
+    function tick(now) {
+      const elapsed = now - start;
+      const t = Math.min(1, elapsed / duration);
+      const eased = 1 - Math.pow(1 - t, 4);
+      const value = target * eased;
+      el.textContent = formatNumber(value, decimals) + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = formatNumber(target, decimals) + suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function setFinalValue(el) {
+    const target = parseFloat(el.dataset.countTo);
+    if (isNaN(target)) return;
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const suffix = el.dataset.suffix || '';
+    el.textContent = formatNumber(target, decimals) + suffix;
+  }
+
+  const counted = new WeakSet();
+
+  document.addEventListener('pageentered', (e) => {
+    e.detail.element.querySelectorAll('[data-count-to]').forEach(el => {
+      if (!counted.has(el)) {
+        counted.add(el);
+        animateCount(el);
+      }
+    });
+  });
+
+  // Re-format counted values to current locale on lang swap
+  document.addEventListener('langapplied', () => {
+    document.querySelectorAll('[data-count-to]').forEach(el => {
+      if (counted.has(el)) setFinalValue(el);
+    });
+  });
+})();
+
+(function () {
+  'use strict';
+
+  // ═════════════════════════════════════════════════════
+  // Scroll-glyph idle reveal — now hides on first navigation
+  // ═════════════════════════════════════════════════════
+  const glyph = document.getElementById('scrollGlyph');
+  if (!glyph) return;
+  let timer = setTimeout(() => glyph.classList.add('is-visible'), 2000);
+  const cancel = () => {
+    clearTimeout(timer);
+    glyph.classList.remove('is-visible');
+  };
+  document.addEventListener('pageentered', (e) => {
+    if (e.detail.source !== 'init') cancel();
+  }, { once: true });
+})();
+</script>
+
+</body>
+</html>
